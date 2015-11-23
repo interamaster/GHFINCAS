@@ -255,14 +255,14 @@ public class SignupActivity extends AppCompatActivity {
             _nameText.setError(null);
         }
 
-        /*
+
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("entre una direccion valida de email para poder enviarle su password");
             valid = false;
         } else {
             _emailText.setError(null);
         }
-        */
+
 
         if (telefono.isEmpty() || telefono.length() < 9 || telefono.length() > 9) {
             _telefonoText.setError("Por favor entre un numero de telefono valido!!");
