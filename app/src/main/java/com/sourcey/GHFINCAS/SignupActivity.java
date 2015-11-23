@@ -23,8 +23,6 @@ public class SignupActivity extends AppCompatActivity {
 
     //para hacer un timne out de 3 segs
 
-    private Thread thread;
-
 
 
 
@@ -71,40 +69,77 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(false);
 
 
-
-
-    final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
+        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Enviando datos a Servidor seguro en un plazo maximo de  24h recibira por email su contraseña.");
         progressDialog.show();
 
 
+//eperamos 4 segs
 
 
-//eperamos 3 segs
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
 
 
-        final SignupActivity myActivity = this;
+            public void run() {
+                //aqui klo que queramosd que pase en 3 segs
 
-        thread=  new Thread(){
-            @Override
-            public void run(){
+
+                String name = _nameText.getText().toString();
+                String email = _emailText.getText().toString();
+                String telefono = _telefonoText.getText().toString();
+                String comunidad = _nombreComunidad.getText().toString();
+
+
+                //el imei:
+
+                TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+                String imei = mngr.getDeviceId();
+
+                Log.i("email:", "" + imei);
+
+
+                // TODO: Implement your own signup logic here.
+                //aqui habria que mandar email con datos!!!
+
+                Log.i("Send email", "");
+
+                String[] TO = {"someone@gmail.com"};
+                String[] CC = {"xyz@gmail.com"};
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                emailIntent.setData(Uri.parse("mailto:"));
+                emailIntent.setType("text/plain");
+
+
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+                emailIntent.putExtra(Intent.EXTRA_CC, CC);
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Nueva Solicitud alta GHFINCASN APK");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Gracias por enviarnos su email estos son sus datos:" + name + " " + email + "" + telefono + "" + comunidad + "signature" + imei);
+
                 try {
-                    synchronized(this){
-                        wait(3000);
-                    }
-                }
-                catch(InterruptedException ex){
+                    startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                    finish();
+                    Log.i("Finished sending email", "");
+                } catch (android.content.ActivityNotFoundException ex) {
+                    //no me deja poner un toast dentro de un runnable!!!!
+
+                   // Toast.makeText(this, "Lo siento su movil no esta preparado para mandar emails..", Toast.LENGTH_SHORT).show();
                 }
 
-                // TODO
+                finish();
+
             }
-        };
-
-        thread.start();
+        }, 4000);
 
 
+
+
+
+
+
+/*
         String name = _nameText.getText().toString();
         String email = _emailText.getText().toString();
         String telefono = _telefonoText.getText().toString();
@@ -148,10 +183,9 @@ public class SignupActivity extends AppCompatActivity {
         }
 
 
+     finish();
 
-        finish();
-
-
+*/
     }
 
 
