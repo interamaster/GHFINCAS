@@ -173,8 +173,8 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
 
-        //de moemnto deshaibilit el cheqieuo del email
-
+        //TODO de moemnto deshaibilit el cheqieuo del email
+        /*
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("Introduzca una direccion de email valida");
             valid = false;
@@ -182,13 +182,13 @@ public class LoginActivity extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-
+*/
 
 
 
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("su paasword debe tener entre 4 y 10 caracteres");
+            _passwordText.setError("su password debe tener entre 4 y 10 caracteres");
             valid = false;
         } else {
             _passwordText.setError(null);

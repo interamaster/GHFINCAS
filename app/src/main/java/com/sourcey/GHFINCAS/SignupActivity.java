@@ -104,7 +104,7 @@ public class SignupActivity extends AppCompatActivity {
                 Log.i(" imei:", "" + imei);
 
 
-                // TODO: Implement your own signup logic here.
+                // TODO: Hacer envio email automatico
                 //aqui habria que mandar email con datos!!!
 
                 Log.d("Send email", "Send email");
@@ -141,91 +141,10 @@ public class SignupActivity extends AppCompatActivity {
         }, 4000);
 
 
-
-
-
-
-
-/*
-        String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String telefono = _telefonoText.getText().toString();
-        String comunidad=_nombreComunidad.getText().toString();
-
-
-                //el imei:
-
-        TelephonyManager mngr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        String imei=mngr.getDeviceId();
-
-        Log.i("email:", ""+imei);
-
-
-
-
-
-        // TODO: Implement your own signup logic here.
-        //aqui habria que mandar email con datos!!!
-
-        Log.i("Send email", "");
-
-        String[] TO = {"someone@gmail.com"};
-        String[] CC = {"xyz@gmail.com"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Nueva Solicitud alta GHFINCASN APK");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Gracias por enviarnos su email estos son sus datos:"+name+" "+email+""+telefono+""+comunidad+"signature"+imei);
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-            Log.i("Finished sending email", "");
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(this, "Lo siento su movil no esta preparado para mandar emails..", Toast.LENGTH_SHORT).show();
-        }
-
-
-     finish();
-
-*/
     }
 
 
-
-
-    //enviar email:
-
-    /*
-    protected void sendEmail() {
-        Log.i("Send email", "");
-
-        String[] TO = {"someone@gmail.com"};
-        String[] CC = {"xyz@gmail.com"};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-
-
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-        emailIntent.putExtra(Intent.EXTRA_CC, CC);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-            finish();
-            Log.i("Finished sending email...", "");
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(com.mio.jrdv.ghfincas.MainActivity.this,
-                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
-        }
-    }
-*/
+ 
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
