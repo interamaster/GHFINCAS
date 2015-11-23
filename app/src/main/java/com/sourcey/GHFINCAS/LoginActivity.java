@@ -50,6 +50,29 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
+
+
+        //TODO ojo hay que quitarlo
+        //para probar!!!!!! y saber el apssword ojoj quitar:
+
+
+        //sacamos imei:
+
+        TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = mngr.getDeviceId();
+
+        String last2CharacteresIemi = imei.substring(Math.max(imei.length() - 2, 0));
+
+
+        //deber ser final para poderla usar en el if de abajo!!!
+
+        String decryptedpassword="ghfincas"+last2CharacteresIemi;
+
+        Toast.makeText(this, "Este es tu password!!!(EL email da =) habra que enviarselo por email al cliente en un futuro:"+decryptedpassword, Toast.LENGTH_LONG).show();
+
+        //TODO hasta aqui
+
+
     }
 
     public void login() {
@@ -83,6 +106,8 @@ public class LoginActivity extends AppCompatActivity {
         //deber ser final para poderla usar en el if de abajo!!!
 
         final String decryptedpassword="ghfincas"+last2CharacteresIemi;
+
+        Toast.makeText(this, "Este es tu password!!! habra que enviarselo por email al cluiente en un futuro:"+decryptedpassword, Toast.LENGTH_SHORT).show();
 
 
 
