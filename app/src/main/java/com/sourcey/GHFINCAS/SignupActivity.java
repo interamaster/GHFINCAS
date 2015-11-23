@@ -21,7 +21,9 @@ import butterknife.InjectView;
 public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
-    //para hacer un timne out de 3 segs
+
+    private static final String [] EmailTO = {"interamaster@gmail.com"};
+
 
 
 
@@ -72,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Enviando datos a Servidor seguro en un plazo maximo de  24h recibira por email su contraseña.");
+        progressDialog.setMessage("Generando  email encriptado para enviar a servidor,por favor envie el email a continuacion... en 24h recibira por email su contraseña.");
         progressDialog.show();
 
 
@@ -80,6 +82,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
         Handler handler = new Handler();
+
         handler.postDelayed(new Runnable() {
 
 
@@ -98,30 +101,34 @@ public class SignupActivity extends AppCompatActivity {
                 TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
                 String imei = mngr.getDeviceId();
 
-                Log.i("email:", "" + imei);
+                Log.i(" imei:", "" + imei);
 
 
                 // TODO: Implement your own signup logic here.
                 //aqui habria que mandar email con datos!!!
 
-                Log.i("Send email", "");
+                Log.d("Send email", "Send email");
 
-                String[] TO = {"someone@gmail.com"};
-                String[] CC = {"xyz@gmail.com"};
+
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.setType("text/plain");
 
 
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
-                emailIntent.putExtra(Intent.EXTRA_CC, CC);
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Nueva Solicitud alta GHFINCASN APK");
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "Gracias por enviarnos su email estos son sus datos:" + name + " " + email + "" + telefono + "" + comunidad + "signature" + imei);
+                emailIntent.putExtra(Intent.EXTRA_EMAIL, EmailTO);
+
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Nueva Solicitud alta GHFINCAS  APK");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Gracias por enviarnos su email estos son sus datos:\n" + name + "\n" + email + "\n" + telefono + "\n" + comunidad + "\n signature:" + "Start ENCRYPTED:" +
+                        "%%ADFSDLIFSDLJKHDLKASHDLKHSLKJDHLSDHLKASDKJSKDJJDKJKLDLSKAJDLKAJSDKJLDJLKSJDLKAJSDLKSJADLKJASLDJASKDKJDLKJERIUFH" +
+                        "KLJHFDKHGJKFHKJHGKJHJKFJKDFHGKJHDFKJGHKJDFHGKJFHJKHJFGKJHFDKJGHKJFDHGJKFHGKJDKHGDFKHGJKFDHGKSHFJGHDFSKGKJFDHGKFH" +
+                        ""+imei+"DSADASKDJKASJDLKAJDLKJSALKDJLKJKDLJSALKDJASLKDJLKASDJLKSDJKLSJDLKASJDLKJSLKJDLKJDDSJLKADJSLDSJAKSDKLDSLJ" +
+                        "DNSDJLKAJJKVJKVSDIOUFISODUOIFSJKLKDLSFJLKSDJFLKDSJFKLJSDLKFJKLDSJFLKSJDFLKJSDLKFJKLDJFLKSDJFKLJSDFKLJSDKLFJSDKLF");
+
 
                 try {
                     startActivity(Intent.createChooser(emailIntent, "Send mail..."));
                     finish();
-                    Log.i("Finished sending email", "");
+                    Log.d("  email", "Finished sending email");
                 } catch (android.content.ActivityNotFoundException ex) {
                     //no me deja poner un toast dentro de un runnable!!!!
 
