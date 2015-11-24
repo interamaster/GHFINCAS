@@ -76,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        /*
 
-        //TODO ojo hay que quitarlo
         //para probar!!!!!! y saber el apssword ojoj quitar:
 
 
@@ -95,9 +95,9 @@ public class LoginActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Este es tu password!!!(EL email da =) habra que enviarselo por email al cliente en un futuro:"+decryptedpassword, Toast.LENGTH_LONG).show();
 
-        //TODO hasta aqui
 
 
+         */
 
         //recupermos los valores del SharedPRefs sis e guardaron tras el signup activity
 
@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final String decryptedpassword="ghfincas"+last2CharacteresIemi;
 
-        Toast.makeText(this, "Este es tu password!!! habra que enviarselo por email al cluiente en un futuro:"+decryptedpassword, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this, "Este es tu password!!! habra que enviarselo por email al cluiente en un futuro:"+decryptedpassword, Toast.LENGTH_SHORT).show();
 
 
 
@@ -265,8 +265,8 @@ public class LoginActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString();
 
 
-        //TODO de moemnto deshaibilit el cheqieuo del email
-        /*
+
+
         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             _emailText.setError("Introduzca una direccion de email valida");
             valid = false;
@@ -274,7 +274,7 @@ public class LoginActivity extends AppCompatActivity {
             _emailText.setError(null);
         }
 
-*/
+
 
 
 
