@@ -143,7 +143,20 @@ public class SignupActivity extends AppCompatActivity {
                 Log.d("Send email", "Send email");
 
 
-                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                  /*
+                //enviar solo por email!!!
+
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                */
+
+
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
                 emailIntent.setData(Uri.parse("mailto:"));
                 emailIntent.setType("text/plain");
 
@@ -200,7 +213,7 @@ public class SignupActivity extends AppCompatActivity {
         String comunidad=_nombreComunidad.getText().toString();
 
 
-        if (name.isEmpty() || name.length() < 15) {
+        if (name.isEmpty() || name.length() < 5) {
             _nameText.setError("Su nombre de ser completo con Apellidos para asegurar confidencialidad de datos a los que puede acceder!!!");
             valid = false;
         } else {
@@ -224,7 +237,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
 
-        if (comunidad.isEmpty() || name.length() < 15) {
+        if (comunidad.isEmpty() || name.length() < 5) {
             _nombreComunidad.setError("Por favor introduzca el nombre completo de su comunidad!!");
             valid = false;
         } else {

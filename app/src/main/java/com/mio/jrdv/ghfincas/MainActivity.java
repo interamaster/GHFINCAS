@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -28,6 +29,12 @@ public class MainActivity extends Activity {
     //TODO email GHFINCAS
 
     private static final String [] EmailTO = {"interamaster@gmail.com"};
+
+    //para evitar un doble click rapido
+
+    private long mLastClickTime = 0;
+
+
 
     private ImageButton DialButton;
     private ImageButton EmailButton;
@@ -62,6 +69,24 @@ public class MainActivity extends Activity {
         DialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+                // mis -clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                // do your magic here . . . .
+
+
+                //que vibre al pulsar
+                v.performHapticFeedback(1, 2);
+
                 //String phno = "tel:123456789";la declaramos public!!!
 
 
@@ -78,6 +103,23 @@ public class MainActivity extends Activity {
         WebGHFINCASButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+                // mis -clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                // do your magic here . . . .
+
+                //que vibre al pulsar
+                v.performHapticFeedback(1, 2);
+
+
                 //este abre una web
 
                // String url = "http://www.ghfincas.es/";la declaramos public!!!
@@ -96,6 +138,22 @@ public class MainActivity extends Activity {
         EmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+                // mis -clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                // do your magic here . . . .
+
+                //que vibre al pulsar
+                v.performHapticFeedback(1, 2);
+
                  //este manda un email prellenado
 
 
@@ -129,10 +187,35 @@ public class MainActivity extends Activity {
                 String Telefono  = pref.getString(LoginActivity.PREF_TELEFONO, null);
                 String NombreVecino  = pref.getString(LoginActivity.PREF_NOMBREVECINO, null);
 
+                /*
+                //enviar solo por email!!!
 
-                Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                */
+
+                /*
+
+                String recepientEmail = ""; // either set to destination email or leave empty
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:" + recepientEmail));
+                startActivity(intent);
+                 */
+
+
+             //   Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:someone@example.com"));
+
+
+                 Intent emailIntent = new Intent(Intent.ACTION_VIEW);
                 emailIntent.setData(Uri.parse("mailto:"));
-                emailIntent.setType("text/plain");
+
+
+                emailIntent.setType("message/rfc822");
 
 
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, EmailTO);
