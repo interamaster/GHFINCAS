@@ -3,6 +3,7 @@ package com.mio.jrdv.ghfincas;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
@@ -13,12 +14,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mio.jrdv.ghfincas.SignupActivity;
-
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+
+
+
+
+
+
+
+
 public class LoginActivity extends AppCompatActivity {
+
+
+
+
+    //mio para guradr los valores de comunidad/nomre/telfonno/emila y pasw!!son public y accesibles desde toda la APK
+
+
+    public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String PREF_EMAIL = "email";//sera el user name
+    public static final String PREF_PASSWORD = "password";
+    public static final String PREF_TELEFONO = "telefono";
+    public static final String PREF_NOMBRECMUNIDAD = "nombreComunidad";
+    public static final String PREF_NOMBREVECINO = "nombreVecino";
+    public static final String PREF_BOOL_LOGINYAOK ="false";
+
+
+
+
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
 
@@ -46,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), com.mio.jrdv.ghfincas.SignupActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
@@ -72,6 +97,52 @@ public class LoginActivity extends AppCompatActivity {
 
         //TODO hasta aqui
 
+
+
+        //recupermos los valores del SharedPRefs sis e guardaron tras el signup activity
+
+
+
+        SharedPreferences pref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+
+
+
+        /*
+
+        estos son los vaslores guarados en el signup activity tras el ok
+
+        edit.putString(LoginActivity.PREF_NOMBREVECINO, name);
+        edit.putString(LoginActivity.PREF_EMAIL, email);
+        edit.putString(LoginActivity.PREF_NOMBRECMUNIDAD, comunidad);
+        edit.putString(LoginActivity.PREF_TELEFONO, telefono);
+        edit.putString(LoginActivity.PREF_PASSWORD, decryptedpassword);
+
+        edit.putBoolean(LoginActivity.PREF_BOOL_LOGINYAOK,true);
+
+        */
+
+        String email = pref.getString(PREF_EMAIL, null);//esto devolvera el nombre si existe o null!!
+        String password = pref.getString(PREF_PASSWORD, null);
+
+
+        boolean alreadyloggedinbefore =  pref.getBoolean(PREF_BOOL_LOGINYAOK, false);
+
+        Log.d(TAG, "email:" +email+" y  password:"+password);
+
+         Log.d(TAG, String.valueOf(alreadyloggedinbefore));
+
+
+        //si existen el username y password los ponemos n los campos de manera automatica
+
+
+            if (email != null && password != null && alreadyloggedinbefore){
+
+
+        _emailText.setText(email);
+        _passwordText.setText(password);
+
+            }
 
     }
 
@@ -157,6 +228,27 @@ public class LoginActivity extends AppCompatActivity {
 
     public void onLoginSuccess() {
         _loginButton.setEnabled(true);
+
+
+        //una vez hemos hecho el primer loging OK cmabiamos le bool para que la proxima vez lo guarde solo!!!!
+
+
+        SharedPreferences pref = getSharedPreferences( PREFS_NAME, Context.MODE_PRIVATE);
+
+        // We need an editor object to make changes
+        SharedPreferences.Editor edit = pref.edit();
+
+
+        edit.putBoolean( PREF_BOOL_LOGINYAOK,true);
+
+
+
+        // Commit the changes
+        edit.commit();
+
+
+
+
         finish();
     }
 

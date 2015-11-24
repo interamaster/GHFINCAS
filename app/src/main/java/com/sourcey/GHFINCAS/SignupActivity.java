@@ -3,6 +3,7 @@ package com.mio.jrdv.ghfincas;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mio.jrdv.ghfincas.LoginActivity;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -96,12 +99,44 @@ public class SignupActivity extends AppCompatActivity {
                 String comunidad = _nombreComunidad.getText().toString();
 
 
+
+
                 //el imei:
 
                 TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
                 String imei = mngr.getDeviceId();
 
                 Log.i(" imei:", "" + imei);
+
+
+                String last2CharacteresIemi = imei.substring(Math.max(imei.length() - 2, 0));
+
+                 String decryptedpassword="ghfincas"+last2CharacteresIemi;
+
+
+
+
+                //los Valores on correctos asi que los guardamos en le SharedPreference!!!
+
+
+                SharedPreferences pref = getSharedPreferences(LoginActivity.PREFS_NAME, Context.MODE_PRIVATE);
+
+                // We need an editor object to make changes
+                SharedPreferences.Editor edit = pref.edit();
+
+                // Set/Store data
+                edit.putString(LoginActivity.PREF_NOMBREVECINO, name);
+                edit.putString(LoginActivity.PREF_EMAIL, email);
+                edit.putString(LoginActivity.PREF_NOMBRECMUNIDAD, comunidad);
+                edit.putString(LoginActivity.PREF_TELEFONO, telefono);
+                edit.putString(LoginActivity.PREF_PASSWORD, decryptedpassword);
+
+                edit.putBoolean(LoginActivity.PREF_BOOL_LOGINYAOK,false);
+
+
+
+                // Commit the changes
+                edit.commit();
 
 
                 // TODO: Hacer envio email automatico

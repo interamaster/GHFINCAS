@@ -71,7 +71,7 @@
             <EditText android:id="@+id/input_nombrecomunidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textLongMessage"
+                android:inputType="text"
                 android:hint="Nombre de su comunidad"/>
         </android.support.design.widget.TextInputLayout>
 
