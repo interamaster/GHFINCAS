@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-da6ce5616429f2b8e91d9b28532963d6a0d9cdf9.jar" />
-    </item>
-    <item
-        jar="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-4500888504aea646aea7a52177b3dd4ef9b8332b.jar" />
-    </item>
-    <item
-        jar="/Users/invitado/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
+        jar="/Users/joseramondelgado/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/6.1.0/63735f48b82bcd24cdd33821342428252eb1ca5a/butterknife-6.1.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="63735f48b82bcd24cdd33821342428252eb1ca5a">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-3de08d91a15e067b1566e79d6a7d78e8f42a2ad1.jar" />
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/butterknife-6.1.0-934aab98378ab57f0b3f60b0e38d9893dc41633b.jar" />
     </item>
     <item
-        jar="/Users/invitado/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jar="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-0e6dbd7491fe8f415fac3bf7963b33a417fcd007.jar" />
+    </item>
+    <item
+        jar="/Users/joseramondelgado/Documents/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-df89f2a4695c7b1b6ea4e50db210734d96672b81.jar" />
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-fa7991abc55ffcc86126c4e6a7bec8b3b72734a6.jar" />
     </item>
     <item
-        jar="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/design/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-1b7fa8df8d5d9efa527fcb3af7abed36ff623f79.jar" />
+    </item>
+    <item
+        jar="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-e9cde4bec993099db8fb003ebd56f4e51fd9cc2a.jar" />
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-019d0401218763cf304c47531547d0e21ee335ce.jar" />
     </item>
     <item
-        jar="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jar="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/invitado/Downloads/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-c8b6a579d0a5fc77ea6a7a6d83e1aa8f431cd1cb.jar" />
+        <dex dex="/Users/joseramondelgado/Dropbox/GHFINCAS APK/GHFINCAS v02/GHFINCAS/app/build/intermediates/pre-dexed/debug/classes-4088e6f7734b215e7b02b27eec82e6de4badf115.jar" />
     </item>
 
 </items>

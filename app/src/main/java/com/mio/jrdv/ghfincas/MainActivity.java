@@ -211,7 +211,7 @@ public class MainActivity extends Activity {
              //   Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:someone@example.com"));
 
 
-                 Intent emailIntent = new Intent(Intent.ACTION_VIEW);
+                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("mailto:"));
 
 

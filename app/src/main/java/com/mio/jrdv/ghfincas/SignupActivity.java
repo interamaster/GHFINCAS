@@ -156,9 +156,9 @@ public class SignupActivity extends AppCompatActivity {
                 */
 
 
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 emailIntent.setData(Uri.parse("mailto:"));
-                emailIntent.setType("text/plain");
+                emailIntent.setType("message/rfc822");
 
 
                 emailIntent.putExtra(Intent.EXTRA_EMAIL, EmailTO);
