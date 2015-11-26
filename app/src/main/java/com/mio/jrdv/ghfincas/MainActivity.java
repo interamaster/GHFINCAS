@@ -247,7 +247,83 @@ public class MainActivity extends Activity {
             }
         });
 
+
+        //4º la incidencia esta pla vamos a sacra fuera en su button
+
+
+/*
+        INCIDENCIAButton =(ImageButton)findViewById(R.id.IncidenciaButton);
+
+        //le damos su funcion al Dialbutton:
+
+
+
+        INCIDENCIAButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+                // mis -clicking prevention, using threshold of 1000 ms
+                if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                    return;
+                }
+                mLastClickTime = SystemClock.elapsedRealtime();
+
+                // do your magic here . . . .
+
+
+                //que vibre al pulsar
+
+                v.performHapticFeedback(1, 2);
+
+                //Y ahora a que abra la nueva pagina
+
+                Intent intentIncidencia =new Intent(this,IncidenciaActivity.class);
+
+
+
+            }
+        });*/
+
+
     }
+
+
+    //Se ejecuta la pulsar el boton de inicdencia
+
+    public void IncidenciaButtonPulsado (View view){
+
+        /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+        // mis -clicking prevention, using threshold of 1000 ms
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
+
+        // do your magic here . . . .
+
+
+        //que vibre al pulsar
+
+        view.performHapticFeedback(1, 2);
+
+        //Y ahora a que abra la nueva pagina
+
+        Intent intentIncidencia =new Intent(this,IncidenciaActivity.class);
+        startActivity(intentIncidencia);
+
+
+
+
+    }
+
 
 }
 

@@ -11,12 +11,14 @@
         android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/apuButton"
+            android:id="@+id/IncidenciaButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/alerticon2"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+
+            android:onClick="IncidenciaButtonPulsado"/>
         <ImageButton
             android:id="@+id/DialButton"
             android:layout_width="0dp"
