@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true">
+    xmlns:circular="com.mio.jrdv.ghfincas.CircularProgressBar"
+    android:fitsSystemWindows="true"
+ >
 
     <LinearLayout
         android:orientation="vertical"
@@ -11,6 +14,7 @@
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
+        android:id="@+id/ScrollViewLoginActivity"
 
 
         android:descendantFocusability="beforeDescendants"
@@ -48,7 +52,16 @@
                 android:hint="Password"/>
         </android.support.design.widget.TextInputLayout>
 
-
+        <!-- EJEMPLO PROGRESSBAR
+        <com.mio.jrdv.ghfincas.CircularProgressBar
+            android:id="@+id/circularprogressbar1"
+            style="@style/Widget.ProgressBar.Holo.CircularProgressBar"
+            android:layout_width="120dip"
+            android:layout_height="120dip"
+            android:layout_marginTop="10dip"
+            circular:subtitle="subtitle"
+            circular:title="Title" />
+             -->
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

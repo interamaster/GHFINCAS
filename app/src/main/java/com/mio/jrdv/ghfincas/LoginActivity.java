@@ -1,6 +1,5 @@
 package com.mio.jrdv.ghfincas;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,6 +76,34 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
+        //TODO EJ DEL PROGRESSBAR
+/*
+        final CircularProgressBar c3 = (CircularProgressBar) findViewById(R.id.circularprogressbar1);
+        c3.setTitle("GHFINCAS");
+        c3.setSubTitle("GHFINCAS");
+        c3.setProgress(42);
+
+
+        c3.animateProgressTo(0, 100, new CircularProgressBar.ProgressAnimationListener() {
+
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationProgress(int progress) {
+                c3.setTitle(progress + "%");
+            }
+
+            @Override
+            public void onAnimationFinish() {
+                c3.setSubTitle("done");
+            }
+        });
+
+*/
         /*
 
         //para probar!!!!!! y saber el apssword ojoj quitar:
@@ -156,11 +184,74 @@ public class LoginActivity extends AppCompatActivity {
 
         _loginButton.setEnabled(false);
 
+
+/*
         final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Entrando...");
         progressDialog.show();
+
+*/
+
+        //TODO vamos a poner tambien un ProgressBar añdiendo la view del tiron:
+
+
+/*
+        LinearLayout myLayout = (LinearLayout) findViewById(R.id.ScrollViewLoginActivity);
+
+         Button myButton = new Button(this);
+
+        myButton.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT));
+
+        myLayout.addView(myButton);
+*/
+
+
+
+
+
+
+
+
+
+        //TODO EJ DEL PROGRESSBAR
+
+        LinearLayout myLayout = (LinearLayout) findViewById(R.id.ScrollViewLoginActivity);
+        final CircularProgressBar c3 = new CircularProgressBar(this);
+        c3.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT));
+
+        myLayout.addView(c3);
+
+        c3.setTitle("GHFINCAS");
+        c3.setSubTitle("GHFINCAS");
+        c3.setProgress(42);
+
+
+        c3.animateProgressTo(0, 100, new CircularProgressBar.ProgressAnimationListener() {
+
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationProgress(int progress) {
+                c3.setTitle(progress + "%");
+            }
+
+            @Override
+            public void onAnimationFinish() {
+                c3.setSubTitle("done");
+                onLoginSuccess();
+            }
+        });
+
+        //TODO hasta aqui
+
 
         String email = _emailText.getText().toString();
         final String password = _passwordText.getText().toString();
@@ -181,7 +272,7 @@ public class LoginActivity extends AppCompatActivity {
       //  Toast.makeText(this, "Este es tu password!!! habra que enviarselo por email al cluiente en un futuro:"+decryptedpassword, Toast.LENGTH_SHORT).show();
 
 
-
+/*
         //  Implement your own authentication logic here.
 
         new android.os.Handler().postDelayed(
@@ -202,7 +293,9 @@ public class LoginActivity extends AppCompatActivity {
 
                         progressDialog.dismiss();
                     }
-                }, 1500);
+                }, 1500);*/
+
+
     }
 
 
