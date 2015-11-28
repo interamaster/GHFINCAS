@@ -3,13 +3,18 @@ package com.mio.jrdv.ghfincas;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,56 +85,23 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+        //redondeamos el LOGO:
 
-        //TODO EJ DEL PROGRESSBAR
-/*
-        final CircularProgressBar c3 = (CircularProgressBar) findViewById(R.id.circularprogressbar1);
-        c3.setTitle("GHFINCAS");
-        c3.setSubTitle("GHFINCAS");
-        c3.setProgress(42);
+        ImageView LOGO=(ImageView)findViewById(R.id.LOGO);
 
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.logo7);
 
-        c3.animateProgressTo(0, 100, new CircularProgressBar.ProgressAnimationListener() {
+        RoundedBitmapDrawable img = RoundedBitmapDrawableFactory.create(getResources(), largeIcon);
 
-            @Override
-            public void onAnimationStart() {
-            }
+        //asi con un radio
 
-            @Override
-            public void onAnimationProgress(int progress) {
-                c3.setTitle(progress + "%");
-            }
-
-            @Override
-            public void onAnimationFinish() {
-                c3.setSubTitle("done");
-            }
-        });
-
-*/
-        /*
-
-        //para probar!!!!!! y saber el apssword ojoj quitar:
+        img.setCornerRadius(150.0f);
 
 
-        //sacamos imei:
+        //asi es circular perfecta
+        //img.setCornerRadius(Math.min(img.getMinimumWidth(), img.getMinimumHeight())/2.0f);
 
-        TelephonyManager mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String imei = mngr.getDeviceId();
-
-        String last2CharacteresIemi = imei.substring(Math.max(imei.length() - 2, 0));
-
-
-        //deber ser final para poderla usar en el if de abajo!!!
-
-        String decryptedpassword="ghfincas"+last2CharacteresIemi;
-
-        Toast.makeText(this, "Este es tu password!!!(EL email da =) habra que enviarselo por email al cliente en un futuro:"+decryptedpassword, Toast.LENGTH_LONG).show();
-
-
-
-         */
-
+        LOGO.setImageDrawable(img);
         //recupermos los valores del SharedPRefs sis e guardaron tras el signup activity
 
 
@@ -186,79 +158,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         _loginButton.setEnabled(false);
-
-
-/*
-        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
-                R.style.AppTheme_Dark_Dialog);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Entrando...");
-        progressDialog.show();
-
-*/
-
-        //TODO vamos a poner tambien un ProgressBar añdiendo la view del tiron:
-
-
-/*
-        LinearLayout myLayout = (LinearLayout) findViewById(R.id.ScrollViewLoginActivity);
-
-         Button myButton = new Button(this);
-
-        myButton.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
-
-        myLayout.addView(myButton);
-*/
-
-
-
-
-
-
-
-
-
-        //TODO EJ DEL PROGRESSBAR
-/*
-        LinearLayout myLayout = (LinearLayout) findViewById(R.id.ScrollViewLoginActivity);
-        final CircularProgressBar c3 = new CircularProgressBar(this);
-        c3.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT));
-
-        myLayout.addView(c3);
-
-        c3.setTitle("GHFINCAS");
-        c3.setSubTitle("GHFINCAS");
-        c3.setProgress(42);
-
-
-        c3.animateProgressTo(0, 100, new CircularProgressBar.ProgressAnimationListener() {
-
-            @Override
-            public void onAnimationStart() {
-            }
-
-            @Override
-            public void onAnimationProgress(int progress) {
-                c3.setTitle(progress + "%");
-            }
-
-            @Override
-            public void onAnimationFinish() {
-                c3.setSubTitle("done");
-                onLoginSuccess();
-            }
-        });
-*/
-        //TODO hasta aqui
-
-
-
-
-        //en vez de asi lo vamos a hacer desde la otra actvty y luego volvemos lo pongo al final del metodo
 
 
 

@@ -4,15 +4,20 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +64,30 @@ public class SignupActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+
+        //redondeamos el LOGO:
+
+        ImageView LOGO=(ImageView)findViewById(R.id.LOGOSignup);
+
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.logo7);
+
+        RoundedBitmapDrawable img = RoundedBitmapDrawableFactory.create(getResources(), largeIcon);
+
+        //asi con un radio
+
+        img.setCornerRadius(100.0f);
+
+
+        //asi es circular perfecta
+        //img.setCornerRadius(Math.min(img.getMinimumWidth(), img.getMinimumHeight())/2.0f);
+
+        LOGO.setImageDrawable(img);
+        //recupermos los valores del SharedPRefs sis e guardaron tras el signup activity
+
+
+
     }
 
     public void signup() {

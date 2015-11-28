@@ -21,8 +21,9 @@
         android:focusableInTouchMode="true">
 
         <ImageView android:src="@drawable/logo7"
+            android:id="@+id/LOGO"
             android:layout_width="wrap_content"
-            android:layout_height="72dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="24dp"
             android:layout_gravity="center_horizontal" />
 
