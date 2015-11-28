@@ -5,6 +5,8 @@
     android:layout_height="fill_parent"
     xmlns:circular="com.mio.jrdv.ghfincas.CircularProgressBar"
     android:fitsSystemWindows="true"
+
+    android:background="@drawable/fondo_login"
  >
 
     <LinearLayout
@@ -20,12 +22,16 @@
         android:descendantFocusability="beforeDescendants"
         android:focusableInTouchMode="true">
 
-        <ImageView android:src="@drawable/logo7"
+        <ImageView
+
+            android:src="@drawable/logo7"
             android:id="@+id/LOGO"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+
+            />
 
         <!--  Email Label -->
         <android.support.design.widget.TextInputLayout

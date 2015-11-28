@@ -4,4 +4,6 @@
     <string name="hello_world">Esto va marchando surmano!!!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_incidencia">IncidenciaActivity</string>
+
+    <string name="TextMoviendose">Somos especialistas en la gestión y administración de comunidades de propietarios. Nuestro compromiso es el de ofrecer el mejor servicio al mejor precio para obtener la confianza del propietario mediante nuestro esfuerzo y trabajo.</string>
 </resources>
