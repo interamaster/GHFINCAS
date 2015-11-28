@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +45,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+
+    //otro para el progressDialog
+
+    private static final int PROGRESS_BAR_DIALOG = 1;
 
     @InjectView(R.id.input_email) EditText _emailText;
     @InjectView(R.id.input_password) EditText _passwordText;
@@ -218,7 +221,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //TODO EJ DEL PROGRESSBAR
-
+/*
         LinearLayout myLayout = (LinearLayout) findViewById(R.id.ScrollViewLoginActivity);
         final CircularProgressBar c3 = new CircularProgressBar(this);
         c3.setLayoutParams(new LinearLayout.LayoutParams(
@@ -249,8 +252,15 @@ public class LoginActivity extends AppCompatActivity {
                 onLoginSuccess();
             }
         });
-
+*/
         //TODO hasta aqui
+
+
+
+
+        //en vez de asi lo vamos a hacer desde la otra actvty y luego volvemos lo pongo al final del metodo
+
+
 
 
         String email = _emailText.getText().toString();
@@ -296,7 +306,34 @@ public class LoginActivity extends AppCompatActivity {
                 }, 1500);*/
 
 
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //Y ahora a que abra la nueva pagina
+        /*
+        Intent intentIncidencia =new Intent(this,IncidenciaActivity.class);
+        startActivity(intentIncidencia);
+        */
+
+        Intent intentProgressBarActivity =new Intent(this,CircularBarActivity.class);
+        //startActivity(intentProgressBarActivity);
+
+        //en vez de asi le pasamos un request code para poder averiguara ene le OnActivityResult
+
+        startActivityForResult(intentProgressBarActivity,PROGRESS_BAR_DIALOG);
+
+
+
+        //Y cuando vuelva aqui en OnaCtivityResult ejecutamos el OnlogginSucces
+
+
+
+
+
     }
+
+
 
 
     @Override
@@ -310,6 +347,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 //this.finish();
             }
+        }
+
+        else if(requestCode==PROGRESS_BAR_DIALOG){
+
+            //aqui volvemos desde el progrewssBarDialog
+
+            onLoginSuccess();
+
         }
     }
 

@@ -11,8 +11,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -42,6 +40,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
+        <activity android:name=".CircularBarActivity" android:theme="@style/Theme.Transparent"></activity>
     </application>
 
 </manifest>
