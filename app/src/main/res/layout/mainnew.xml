@@ -97,13 +97,14 @@
             android:background="@color/white"/>
 
         <ImageButton
-            android:id="@+id/scaButton"
+            android:id="@+id/ProveedoresButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/logo7"
             android:scaleType="fitXY"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:onClick="ProveedoresButtonPulsado"/>
 
         <ImageButton
             android:id="@+id/IncidenciaButton2"

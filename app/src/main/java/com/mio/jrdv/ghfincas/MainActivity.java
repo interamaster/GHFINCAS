@@ -346,45 +346,33 @@ public class MainActivity extends Activity {
 
     }
 
+        public void ProveedoresButtonPulsado (View view){
 
-}
-
-
-/*
-
-
-public class MainActivity extends ActionBarActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
 
 
-        Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
-        startActivity(intent);
-    }
+            // mis -clicking prevention, using threshold of 1000 ms
+            if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+                return;
+            }
+            mLastClickTime = SystemClock.elapsedRealtime();
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+            // do your magic here . . . .
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            //que vibre al pulsar
+
+            view.performHapticFeedback(1, 2);
+
+            //Y ahora a que abra la nueva pagina
+
+
+            Intent intentIncidencia =new Intent(this,ListaProveedores.class);
+            startActivity(intentIncidencia);
+
+
         }
 
-        return super.onOptionsItemSelected(item);
-    }
 }
- */
+

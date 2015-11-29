@@ -40,10 +40,9 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
-
     <!--Para el ProgressBar -->
 
-    <style name="Widget"/>
+    <style name="Widget" />
 
     <style name="Widget.ProgressBar.CircularProgressBar" parent="Widget">
         <item name="android:indeterminateOnly">false</item>
@@ -61,7 +60,6 @@
     </style>
 
 
-
     <!--Para el AL Transparect Activity -->
     <style name="Theme.Transparent" parent="android:Theme">
         <item name="android:windowIsTranslucent">true</item>
@@ -73,8 +71,6 @@
         <item name="android:backgroundDimEnabled">true</item>
 
     </style>
-
-
 
 
 </resources>

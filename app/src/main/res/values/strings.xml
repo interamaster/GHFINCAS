@@ -6,4 +6,5 @@
     <string name="title_activity_incidencia">IncidenciaActivity</string>
 
     <string name="TextMoviendose">Somos especialistas en la gestión y administración de comunidades de propietarios. Nuestro compromiso es el de ofrecer el mejor servicio al mejor precio para obtener la confianza del propietario mediante nuestro esfuerzo y trabajo.</string>
+    <string name="title_activity_lista_proveedores">ListaProveedores</string>
 </resources>

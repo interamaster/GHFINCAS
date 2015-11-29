@@ -28,12 +28,12 @@
         <activity
             android:name=".LoginActivity"
             android:theme="@style/Theme.JRTHEME" />
-            <!--android:theme="@style/AppTheme.Dark"-->
+        <!-- android:theme="@style/AppTheme.Dark" -->
 
         <activity
             android:name=".SignupActivity"
             android:theme="@style/Theme.JRTHEME" />
-            <!--android:theme="@style/AppTheme.Dark"-->
+        <!-- android:theme="@style/AppTheme.Dark" -->
         <activity
             android:name=".IncidenciaActivity"
             android:label="@string/title_activity_incidencia"
@@ -43,7 +43,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
-        <activity android:name=".CircularBarActivity" android:theme="@style/Theme.Transparent"></activity>
+        <activity
+            android:name=".CircularBarActivity"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name=".ListaProveedores"
+            android:label="@string/title_activity_lista_proveedores"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mio.jrdv.ghfincas.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
