@@ -6,7 +6,7 @@
     xmlns:circular="com.mio.jrdv.ghfincas.CircularProgressBar"
     android:fitsSystemWindows="true"
 
-    android:background="@drawable/fondo_login"
+    android:background="@drawable/fondo2"
  >
 
     <LinearLayout
@@ -43,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:hint="Email"
+                android:textColor="@color/iron"/>
         </android.support.design.widget.TextInputLayout>
 
         <!--  Password Label -->
@@ -56,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:hint="Password"
+                android:textColor="@color/iron"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- EJEMPLO PROGRESSBAR
@@ -92,6 +94,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:textColor="@color/iron"
             android:text="Aun sin cuenta?Crea una aqui!"
             android:gravity="center"
             android:textSize="16dip"/>

@@ -2,12 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:orientation="vertical"
         >
 
@@ -40,35 +41,42 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="5dp">
-
-        <ImageButton
-            android:id="@+id/IncidenciaButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/alerticon2"
-            android:scaleType="fitXY"
-            android:onClick="IncidenciaButtonPulsado"/>
-
+        android:layout_marginTop="5dp"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/DialButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/dialicon"
-            android:scaleType="fitXY"/>
+            android:src="@drawable/telefono1"
+            android:scaleType="fitXY"
+            android:background="@color/white"/>
 
 
         <ImageButton
-            android:id="@+id/IncidenciaButton2"
+            android:id="@+id/IncidenciaButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/alerticon2"
+            android:src="@drawable/averias"
             android:scaleType="fitXY"
-            android:onClick="IncidenciaButtonPulsado"/>
+            android:onClick="IncidenciaButtonPulsado"
+            android:background="@color/white"/>
+
+
+
+
+        <ImageButton
+            android:id="@+id/EmailButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/mail"
+            android:scaleType="fitXY"
+            android:background="@color/white"/>
+
+
 
 
     </LinearLayout>
@@ -76,15 +84,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/white">
 
         <ImageButton
             android:id="@+id/WebButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/webdesign"
-            android:scaleType="fitXY"/>
+            android:src="@drawable/web"
+            android:scaleType="fitXY"
+            android:background="@color/white"/>
 
         <ImageButton
             android:id="@+id/scaButton"
@@ -92,15 +102,18 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/logo7"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:background="@color/white"/>
 
         <ImageButton
-            android:id="@+id/EmailButton"
+            android:id="@+id/IncidenciaButton2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/nvralert"
-            android:scaleType="fitXY"/>
+            android:src="@drawable/documentos"
+            android:scaleType="fitXY"
+            android:onClick="IncidenciaButtonPulsado"
+            android:background="@color/white"/>
 
     </LinearLayout>
 
