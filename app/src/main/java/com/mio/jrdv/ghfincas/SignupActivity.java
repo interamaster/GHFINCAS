@@ -30,7 +30,10 @@ public class SignupActivity extends AppCompatActivity {
 
     private static final String [] EmailTO = {"interamaster@gmail.com"};
 
-    private boolean SendEmailOK=false;
+    private boolean SendEmailOK=false;//PARASABER SI SE MANDO OK  O NO EL AUTO EMAIL
+
+    //PARA PODER HIDE LA PROGRESSBAR DESDE EL ASYNTASK
+
 
      private  ProgressDialog progressDialog;
 
@@ -367,8 +370,12 @@ public class SignupActivity extends AppCompatActivity {
         String[] toArr = {"jrdvsoftyopozi@gmail.com"};
         m.setTo(toArr);
         m.setFrom("jrdvsoftyopozi@gmail.com");
-        m.setSubject("Email en pantalla de incidencia!!");
-        m.setBody("Email body 2");
+        m.setSubject("Nueva Solicitud alta GHFINCAS  APK!!");
+        m.setBody("Gracias por enviarnos su email estos son sus datos:\n" + name + "\n" + email + "\n" + telefono + "\n" + comunidad + "\n signature:" + "Start ENCRYPTED:" +
+                "%%ADFSDLIFSDLJKHDLKASHDLKHSLKJDHLSDHLKASDKJSKDJJDKJKLDLSKAJDLKAJSDKJLDJLKSJDLKAJSDLKSJADLKJASLDJASKDKJDLKJERIUFH" +
+                "KLJHFDKHGJKFHKJHGKJHJKFJKDFHGKJHDFKJGHKJDFHGKJFHJKHJFGKJHFDKJGHKJFDHGJKFHGKJDKHGDFKHGJKFDHGKSHFJGHDFSKGKJFDHGKFH" +
+                ""+imei+"DSADASKDJKASJDLKAJDLKJSALKDJLKJKDLJSALKDJASLKDJLKASDJLKSDJKLSJDLKASJDLKJSLKJDLKJDDSJLKADJSLDSJAKSDKLDSLJ" +
+                "DNSDJLKAJJKVJKVSDIOUFISODUOIFSJKLKDLSFJLKSDJFLKDSJFKLJSDLKFJKLDSJFLKSJDFLKJSDLKFJKLDJFLKSDJFKLJSDFKLJSDKLFJSDKLF");
         try {
             // m.addAttachment("/sdcard/bday.jpg");
             if(m.send()) {
