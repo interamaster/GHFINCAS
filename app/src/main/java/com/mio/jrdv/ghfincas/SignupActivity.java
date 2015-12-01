@@ -32,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private boolean SendEmailOK=false;
 
+     private  ProgressDialog progressDialog;
 
 
 
@@ -102,8 +103,10 @@ public class SignupActivity extends AppCompatActivity {
         _signupButton.setEnabled(false);
 
 
-        final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
-                R.style.AppTheme_Dark_Dialog);
+       // final ProgressDialog progressDialog = new ProgressDialog(SignupActivity.this,
+              //  R.style.AppTheme_Dark_Dialog);
+
+          progressDialog = new ProgressDialog(SignupActivity.this,  R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Generando  email encriptado para enviar a servidor,por favor envie el email a continuacion... en 24h recibira por email su contraseña.");
         progressDialog.show();
@@ -228,7 +231,7 @@ public class SignupActivity extends AppCompatActivity {
         //android.os.NetworkOnMainThreadException
         //hay que hacerlo en en ASYNTASK!!!!
 
-        progressDialog.hide();
+
 
 
         new SendMail().execute("");
@@ -562,6 +565,7 @@ public class SignupActivity extends AppCompatActivity {
             if (SendEmailOK) {
                 //funciono ok
 
+                progressDialog.hide();
                   Toast.makeText(SignupActivity.this, "Su email se envio correctamente!!", Toast.LENGTH_LONG).show();
 
                 finish();
