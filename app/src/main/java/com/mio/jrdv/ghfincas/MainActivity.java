@@ -337,11 +337,14 @@ public class MainActivity extends Activity {
         view.performHapticFeedback(1, 2);
 
         //Y ahora a que abra la nueva pagina
-
+    /*
         Intent intentIncidencia =new Intent(this,IncidenciaActivity.class);
         startActivity(intentIncidencia);
+    */
+        //Ahora mejotr la nueva IncidenciaSinFotoASctibvity
 
-
+        Intent intentIncidencia =new Intent(this,InicidenciaSinFotoActivity.class);
+        startActivity(intentIncidencia);
 
 
     }

@@ -217,16 +217,31 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intentIncidencia);
         */
 
-        Intent intentProgressBarActivity =new Intent(this,CircularBarActivity.class);
-        //startActivity(intentProgressBarActivity);
-
-        //en vez de asi le pasamos un request code para poder averiguara ene le OnActivityResult
-
-        startActivityForResult(intentProgressBarActivity,PROGRESS_BAR_DIALOG);
 
 
+        //////////////////////mi0o/////////////////////
 
-        //Y cuando vuelva aqui en OnaCtivityResult ejecutamos el OnlogginSucces
+        if ((password.equals("sevilla")) || (password.equals(decryptedpassword)))
+        {
+            //onLoginSuccess();
+            Intent intentProgressBarActivity =new Intent(this,CircularBarActivity.class);
+            //startActivity(intentProgressBarActivity);
+
+            //en vez de asi le pasamos un request code para poder averiguara ene le OnActivityResult
+
+            startActivityForResult(intentProgressBarActivity,PROGRESS_BAR_DIALOG);
+
+
+
+            //Y cuando vuelva aqui en OnaCtivityResult ejecutamos el OnlogginSucces
+        }
+
+        else {
+            onLoginFailed();
+        }
+
+
+
 
 
 
