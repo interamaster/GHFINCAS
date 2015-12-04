@@ -371,7 +371,12 @@ public class MainActivity extends Activity {
             //Y ahora a que abra la nueva pagina
 
 
-            Intent intentIncidencia =new Intent(this,ListaProveedores.class);
+            /*Intent intentIncidencia =new Intent(this,ListaProveedores.class);
+            startActivity(intentIncidencia);*/
+
+            //Yahora cargandolo desde internet!!!
+
+            Intent intentIncidencia =new Intent(this,ListaProveedoresFromWeb.class);
             startActivity(intentIncidencia);
 
 

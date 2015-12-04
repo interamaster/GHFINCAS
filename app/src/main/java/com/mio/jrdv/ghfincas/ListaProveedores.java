@@ -98,7 +98,7 @@ public class ListaProveedores extends ActionBarActivity {
         String[] from = { "flag","txt","cur" };
 
         // Ids of views in listview_layout
-        int[] to = { R.id.flag,R.id.txt,R.id.cur};
+        int[] to = { R.id.LOGOPROVEEDOR,R.id.EMPRESAPROVEEDOR,R.id.DESCRIPCIONPROVEEDOR};
 
 
 
