@@ -11,4 +11,5 @@
     <string name="title_activity_lista_proveedores_from_web">ListaProveedoresFromWeb</string>
     <string name="title_activity_provedor">ProvedorActivity</string>
     <string name="title_activity_ghfincas">GHFincasActivity</string>
+    <string name="title_activity_incidencia_general">IncidenciaGeneral</string>
 </resources>

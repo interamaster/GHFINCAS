@@ -346,10 +346,14 @@ public class MainActivity extends Activity {
     */
         //Ahora mejotr la nueva IncidenciaSinFotoASctibvity
 
-        Intent intentIncidencia =new Intent(this,InicidenciaSinFotoActivity.class);
+       /* Intent intentIncidencia =new Intent(this,InicidenciaSinFotoActivity.class);
         startActivity(intentIncidencia);
+*/
 
+        //o mejor aun la nueva IncidenciaGenral
 
+        Intent intentIncidencia =new Intent(this,IncidenciaGeneral.class);
+        startActivity(intentIncidencia);
     }
 
     public void PulsadoLogobutton (View view){

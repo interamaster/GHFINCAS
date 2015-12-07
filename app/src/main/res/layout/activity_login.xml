@@ -24,7 +24,7 @@
 
         <ImageView
 
-            android:src="@drawable/logo7"
+            android:src="@drawable/logo7redondo"
             android:id="@+id/LOGO"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
