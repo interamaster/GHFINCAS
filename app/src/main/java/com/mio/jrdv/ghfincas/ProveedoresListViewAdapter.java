@@ -2,7 +2,6 @@ package com.mio.jrdv.ghfincas;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +103,7 @@ public class ProveedoresListViewAdapter extends BaseAdapter {
 
                 //lo sacamos de la fila
 
+                /*
                 String TelefonoProveedorElegido ="tel:"+ resultp.get(ListaProveedoresFromWeb.TELEFONO);
 
 
@@ -113,6 +113,27 @@ public class ProveedoresListViewAdapter extends BaseAdapter {
 
 
                 context.startActivity(i);//se Hace con context!!!
+
+                */
+
+
+
+                //TODO OTRA OPCION CREAR NUEVA ACTIVITY Y PASARLE DATOS
+
+                Intent intent = new Intent(context, ProvedorActivity.class);
+                // Pass all data rank
+                intent.putExtra("Telefono", resultp.get(ListaProveedoresFromWeb.TELEFONO));
+                // Pass all data country
+                intent.putExtra("Empresa", resultp.get(ListaProveedoresFromWeb.EMPRESA));
+                // Pass all data population
+                intent.putExtra("Descripcion",resultp.get(ListaProveedoresFromWeb.DESCRIPCION));
+                // Pass all data flag
+                intent.putExtra("Logo", resultp.get(ListaProveedoresFromWeb.LOGO));
+                //ahoara llamaos la activity psandole los datos y ene llas los recuperamos del intent!!
+                // Start ProvedorActivity Class
+                context.startActivity(intent);
+
+
 
 
             }

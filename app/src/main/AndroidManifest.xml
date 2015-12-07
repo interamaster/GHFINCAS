@@ -75,6 +75,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
+        <activity
+            android:name=".ProvedorActivity"
+            android:label="@string/title_activity_provedor"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mio.jrdv.ghfincas.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

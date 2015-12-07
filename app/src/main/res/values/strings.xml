@@ -9,4 +9,5 @@
     <string name="title_activity_lista_proveedores">ListaProveedores</string>
     <string name="title_activity_inicidencia_sin_foto">InicidenciaSinFotoActivity</string>
     <string name="title_activity_lista_proveedores_from_web">ListaProveedoresFromWeb</string>
+    <string name="title_activity_provedor">ProvedorActivity</string>
 </resources>

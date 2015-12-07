@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.mio.jrdv.ghfincas.IncidenciaActivity">
+
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- LOGO  image -->
+            <ImageView
+                android:id="@+id/empresaLogo"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_weight="10"
+                android:layout_gravity="center"
+                android:src="@drawable/cameranexticon"
+                android:scaleType="fitXY"
+                android:onClick="PictureZoom"/>
+
+            <!-- titulo Label -->
+            <TextView android:id="@+id/nombreempresa"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/black"
+                android:text="NOMBRE EMPRESA"
+                android:gravity="center"
+                android:textSize="32dip"
+                android:layout_weight="2"/>
+
+            <!-- Descripcion Label -->
+            <TextView android:id="@+id/descripcionempresa"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:textColor="@color/iron"
+                android:text="DESCRIPCIon ira aqui y seguira por el scro"
+                android:gravity="center"
+                android:textSize="16dip"/>
+
+            <!-- Descripcion Label -->
+
+
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/llamarfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_call" />
+
+
+</android.support.design.widget.CoordinatorLayout>
