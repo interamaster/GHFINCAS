@@ -416,7 +416,7 @@ public class MainActivity extends Activity {
 
         }
 
-    public void PulsadoBotonWeb (View view){
+    public void PulsadoBotonEmpresa (View view){
 
 
         /////////////para evitar dobles clicks rapidos //////////////

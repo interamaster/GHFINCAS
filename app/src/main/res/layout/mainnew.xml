@@ -39,14 +39,14 @@
         android:background="@color/white">
 
         <ImageButton
-            android:id="@+id/WebButton"
+            android:id="@+id/EmpresaButton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/flat_empresa"
             android:scaleType="fitCenter"
             android:background="@color/white"
-            android:onClick="PulsadoBotonWeb"/>
+            android:onClick="PulsadoBotonEmpresa"/>
 
         <ImageButton
             android:id="@+id/ProveedoresButton"

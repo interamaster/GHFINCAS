@@ -27,8 +27,48 @@
     <include layout="@layout/content_ghfincas" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="55dp"
+        android:background="@color/white">
+
+        <!-- LOGO  image -->
+        <ImageView
+            android:id="@+id/empresaLogo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:src="@drawable/fondoghfincasactivity1"
+            android:scaleType="fitXY"
+             />
+
+
+
+        <!-- Descripcion Label -->
+        <WebView android:id="@+id/textoEmpresa"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/iron"
+            android:text="DESCRIPCIon ira aqui"
+            android:gravity="center"
+            android:textSize="16dip"
+            android:layout_weight="5"
+            android:background="@color/white"/>
+
+        <!-- Descripcion Label -->
+
+
+
+
+    </LinearLayout>
+
+
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fabweb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
