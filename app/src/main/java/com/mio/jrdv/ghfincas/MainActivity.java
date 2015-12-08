@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -41,9 +40,9 @@ public class MainActivity extends Activity {
 
     //private ImageButton DialButton;
    // private ImageButton EmailButton;
-    private ImageButton WebGHFINCASButton;
-    private ImageButton INCIDENCIAButton;
-    private ImageButton OTHERButton;
+    //private ImageButton WebGHFINCASButton;
+    //private ImageButton INCIDENCIAButton;
+    //private ImageButton OTHERButton;
 
 
 
@@ -456,6 +455,38 @@ public class MainActivity extends Activity {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(urlcomunidad));
         startActivity(i);
+    }
+
+    public void comunicadoplusadobutton(View view) {
+
+        //pulsado el botn comunicados
+        /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+        // mis -clicking prevention, using threshold of 1000 ms
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
+
+        // do your magic here . . . .
+
+
+        //que vibre al pulsar
+
+        view.performHapticFeedback(1, 2);
+
+        //ahora abrimos   la lstview de comunicados
+
+
+
+        Intent intentIncidencia =new Intent(this,ParseActivityListView.class);
+        startActivity(intentIncidencia);
+
+
+
+
     }
 }
 

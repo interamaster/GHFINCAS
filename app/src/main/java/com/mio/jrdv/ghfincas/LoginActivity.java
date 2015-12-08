@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mio.jrdv.ghfincas.helperParse.ParseUtils;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -78,6 +80,24 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_SIGNUP);
             }
         });
+
+
+
+        // TODO Verifying parse configuration. This is method is for developers only.
+        //TODO NO SE HACE CON LA CLASS MYAPPLICATIONPARSE SI NO DA CRASH AL VOLVER  A NETRAR
+
+
+        //registwr with parse
+
+        // register with parse
+       // ParseUtils.registerParse(this);
+
+
+         ParseUtils.verifyParseConfiguration(this);
+
+
+
+
 
 /*
         //redondeamos el LOGO:
@@ -301,7 +321,18 @@ public class LoginActivity extends AppCompatActivity {
         edit.commit();
 
 
+        //TODO desde aqui inicaimos el PARSE
 
+         //recupermoas el email
+
+        String email = pref.getString(PREF_EMAIL, null);//esto devolvera el nombre si existe o null!!
+
+    //hacemos el logging e parse
+
+
+        if (email != null) {
+            ParseUtils.subscribeWithEmail(email);
+        }
 
         finish();
     }

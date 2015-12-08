@@ -59,13 +59,13 @@
             android:onClick="ProveedoresButtonPulsado"/>
 
         <ImageButton
-            android:id="@+id/IncidenciaButton2"
+            android:id="@+id/comunicadoplusadobutton"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/flat_comunicados"
             android:scaleType="fitCenter"
-            android:onClick="IncidenciaButtonPulsado"
+            android:onClick="comunicadoplusadobutton"
             android:background="@color/white"/>
 
 

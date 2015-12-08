@@ -13,15 +13,35 @@
     <!-- Enviar Email auto -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- Parse push notificaciones -->
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+      IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+      to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission
+        android:name="com.mio.jrdv.ghfincas.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.mio.jrdv.ghfincas.permission.C2D_MESSAGE" />
+
+    <!-- Parse push notificaciones  debajo de aplication pongoe ne name de la class que extiende Application -->
     <application
+        android:name=".appParse.MyApplicationParse"
         android:allowBackup="true"
         android:icon="@drawable/logo7redondo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
             android:configChanges="orientation"
+            android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,95 +51,138 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.JRTHEME"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.JRTHEME" />
         <!-- android:theme="@style/AppTheme.Dark" -->
 
         <activity
             android:name=".SignupActivity"
-            android:theme="@style/Theme.JRTHEME"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.JRTHEME" />
         <!-- android:theme="@style/AppTheme.Dark" -->
         <activity
             android:name=".IncidenciaActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_incidencia"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".CircularBarActivity"
-            android:theme="@style/Theme.Transparent"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent" />
         <activity
             android:name=".ListaProveedores"
+            android:configChanges="orientation"
             android:label="@string/title_activity_lista_proveedores"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".InicidenciaSinFotoActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_inicidencia_sin_foto"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".ListaProveedoresFromWeb"
+            android:configChanges="orientation"
             android:label="@string/title_activity_lista_proveedores_from_web"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".ProvedorActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_provedor"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".GHFincasActivity"
+            android:configChanges="orientation"
             android:label="@string/title_activity_ghfincas"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".IncidenciaGeneral"
+            android:configChanges="orientation"
             android:label="@string/title_activity_incidencia_general"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mio.jrdv.ghfincas.MainActivity" />
+        </activity>
+
+        <!-- Added for Parse push notifications -->
+        <service android:name="com.parse.PushService" />
+
+        <!-- ReceiverOriginal Parse -->
+        <!--
+            <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+            android:exported="false">
+        -->
+
+
+        <!-- REceiver Propio nuestro Parse -->
+        <receiver
+            android:name=".receiverParse.CustomPushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!--                   IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+                <category android:name="com.mio.jrdv.ghfincas" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Added for Parse push notifications -->
+        <activity
+            android:name=".ParseActivityListView"
+            android:label="@string/title_activity_parse_activity_list_view"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />

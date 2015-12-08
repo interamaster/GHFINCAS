@@ -26,4 +26,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     compile files('libs/activation.jar')
     compile files('libs/jsoup-1.8.3.jar')
+
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+
+
 }
