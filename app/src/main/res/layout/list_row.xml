@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:orientation="horizontal"
-    android:background="@color/white">
+    android:background="#2C8CCa">
 
     <ImageView
         android:id="@+id/LOGOPROVEEDOR"

@@ -24,6 +24,11 @@ public class MainActivity extends Activity {
 
     final public   String url = "http://www.ghfincas.es/";
 
+    //TODO web de ghfincas Comunidad
+
+    final public   String urlcomunidad = "http://sevillafc.es/";
+
+
     //TODO email GHFINCAS
 
     private static final String [] EmailTO = {"interamaster@gmail.com"};
@@ -34,7 +39,7 @@ public class MainActivity extends Activity {
 
 
 
-    private ImageButton DialButton;
+    //private ImageButton DialButton;
    // private ImageButton EmailButton;
     private ImageButton WebGHFINCASButton;
     private ImageButton INCIDENCIAButton;
@@ -56,9 +61,9 @@ public class MainActivity extends Activity {
 
         //TOMAMOS LA REF DE LOS IMAGEBUTTONS:
         //1º el dial:
+/*      //lo hago mejor con un onclick
 
-
-        DialButton =(ImageButton)findViewById(R.id.DialButton);
+        //DialButton =(ImageButton)findViewById(R.id.DialButton);
 
         //le damos su funcion al Dialbutton:
 
@@ -93,7 +98,7 @@ public class MainActivity extends Activity {
             }
         });
 
-
+*/
         //2º) el de la WEB:!!!no l hago desde inclick
         /*
 
@@ -443,5 +448,14 @@ public class MainActivity extends Activity {
 
     }
 
+    public void ComunidadBotonPulsado(View view) {
+
+        //que habr al web especifica...
+
+        // String url = "http://www.ghfincas.es/";la declaramos public!!!
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(urlcomunidad));
+        startActivity(i);
+    }
 }
 

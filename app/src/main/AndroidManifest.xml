@@ -20,7 +20,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,30 +31,40 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.JRTHEME" />
+            android:theme="@style/Theme.JRTHEME"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <!-- android:theme="@style/AppTheme.Dark" -->
 
         <activity
             android:name=".SignupActivity"
-            android:theme="@style/Theme.JRTHEME" />
+            android:theme="@style/Theme.JRTHEME"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <!-- android:theme="@style/AppTheme.Dark" -->
         <activity
             android:name=".IncidenciaActivity"
             android:label="@string/title_activity_incidencia"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
         </activity>
         <activity
             android:name=".CircularBarActivity"
-            android:theme="@style/Theme.Transparent" />
+            android:theme="@style/Theme.Transparent"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ListaProveedores"
             android:label="@string/title_activity_lista_proveedores"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
@@ -61,7 +73,9 @@
             android:name=".InicidenciaSinFotoActivity"
             android:label="@string/title_activity_inicidencia_sin_foto"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
@@ -70,7 +84,9 @@
             android:name=".ListaProveedoresFromWeb"
             android:label="@string/title_activity_lista_proveedores_from_web"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
@@ -79,7 +95,9 @@
             android:name=".ProvedorActivity"
             android:label="@string/title_activity_provedor"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
@@ -88,7 +106,9 @@
             android:name=".GHFincasActivity"
             android:label="@string/title_activity_ghfincas"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />
@@ -97,7 +117,9 @@
             android:name=".IncidenciaGeneral"
             android:label="@string/title_activity_incidencia_general"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mio.jrdv.ghfincas.MainActivity" />

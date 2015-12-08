@@ -76,7 +76,8 @@
             android:layout_weight="1"
             android:src="@drawable/flat_comunidad"
             android:scaleType="fitCenter"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:onClick="ComunidadBotonPulsado"/>
 
 
         <ImageButton
