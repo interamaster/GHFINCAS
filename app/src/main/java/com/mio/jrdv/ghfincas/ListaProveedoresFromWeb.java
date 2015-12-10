@@ -37,7 +37,7 @@ public class ListaProveedoresFromWeb extends Activity {
     static String EMPRESA = "Empresa";
     static String DESCRIPCION = "Descripcion";
     static String LOGO = "Logo";
-    // URL Address
+    //TODO  URL Address
     String url = "https://jrdvsoft.wordpress.com/prueba-tabla/";
 
 

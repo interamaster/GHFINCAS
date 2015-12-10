@@ -55,6 +55,11 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
+
+
+
+        //TODO paso del JSON lo quiero normal!!!
+
     }
 
     @Override
@@ -83,7 +88,8 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
             if (!isBackground) {
 
                // Intent resultIntent = new Intent(context, MainActivity.class);
-                Intent resultIntent = new Intent(context, ParseActivityListView.class);
+               Intent resultIntent = new Intent(context, ParseActivityListView.class);//probamos ocn elnuevo
+              // Intent resultIntent = new Intent(context, MainActivity.class);
                 resultIntent.putExtra("message",message);
 
                 showNotificationMessage(context, title, message, resultIntent);

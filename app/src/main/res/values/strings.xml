@@ -13,4 +13,5 @@
     <string name="title_activity_ghfincas">GHFincasActivity</string>
     <string name="title_activity_incidencia_general">IncidenciaGeneral</string>
     <string name="title_activity_parse_activity_list_view">ParseActivityListView</string>
+    <string name="title_activity_parse_activity_list_view2">ParseActivityListView2</string>
 </resources>

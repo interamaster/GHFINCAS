@@ -480,8 +480,8 @@ public class MainActivity extends Activity {
         //ahora abrimos   la lstview de comunicados
 
 
-
         Intent intentIncidencia =new Intent(this,ParseActivityListView.class);
+
         startActivity(intentIncidencia);
 
 

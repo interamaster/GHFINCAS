@@ -1,36 +1,35 @@
 package com.mio.jrdv.ghfincas;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.format.DateUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.util.Log;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.mio.jrdv.ghfincas.SQL.NotificationAdapter;
 import com.mio.jrdv.ghfincas.modelParse.MessageParse;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ParseActivityListView extends AppCompatActivity {
 
     //para el parse
     private ListView listView;
-    private List<MessageParse> listMessages = new ArrayList<>();
-    private MessageAdapterParse adapter;
+    private ArrayList<MessageParse> listMessages = new ArrayList<MessageParse>();
+
+     private NotificationAdapter adapternew;
+
+
+
+
+    private final String TAG = ParseActivityListView.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parse_activity_list_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarparse);
         setSupportActionBar(toolbar);
         //con esto cambiamos el tiotulod el ActionBar
         getSupportActionBar().setTitle("COMUNICADOS");
@@ -49,14 +48,51 @@ public class ParseActivityListView extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);//CON ESTO QIOTADO NO SALE EL BOTN DE BACK EN BARRA ARIIBA
         */
 
+        /*
+        MessageParse mensajeprueba=new MessageParse(0,"inicial desde ParseListView",787878989);
 
+
+        listMessages.add(0, mensajeprueba);
+
+        */
         //referencias la listview
 
         listView = (ListView) findViewById(R.id.list_view_parse);
-        adapter = new MessageAdapterParse(this);
+       // adapter = new MessageAdapterParse(this,listMessages);
 
 
-        listView.setAdapter(adapter);
+
+        //si no esta activa est activity o pillamos por aqui
+
+        Intent intent=getIntent();
+
+        String message = intent.getStringExtra("message");
+
+        if(message!= null){
+
+
+            Log.e(TAG, "Push received in ParseListActivity oncreate :" + message);
+            MessageParse m = new MessageParse(0,message, System.currentTimeMillis());
+            listMessages.add(0, m);
+            //adapter.notifyDataSetChanged();
+         // adapternew.notifyDataSetChanged();
+            //en vez de esto que NO hace nada:
+
+            //adapternew.updateList(listMessages);
+
+        }
+
+        //El adapter o creasmo despues SI NO NO ACTULIZA!!!
+
+        //probamos con otro adapter:
+
+        adapternew=new NotificationAdapter(this,this,listMessages);
+
+
+        //  listView.setAdapter(adapter);
+
+        listView.setAdapter(adapternew);
+
 
     }
 
@@ -68,56 +104,12 @@ public class ParseActivityListView extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         String message = intent.getStringExtra("message");
-
-        MessageParse m = new MessageParse(message, System.currentTimeMillis());
+        Log.e(TAG, "Push received in ParseListActivity onNewIntent!!! :" + message);
+        MessageParse m = new MessageParse(0,message, System.currentTimeMillis());
         listMessages.add(0, m);
-        adapter.notifyDataSetChanged();
+        //adapter.notifyDataSetChanged();
+        adapternew.notifyDataSetChanged();
     }
 
 
-    //calss del listview adapter
-    private class MessageAdapterParse extends BaseAdapter {
-
-        LayoutInflater inflater;
-
-        public MessageAdapterParse(Activity activity) {
-            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() {
-            return listMessages.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return listMessages.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view = convertView;
-            if (view == null) {
-                view = inflater.inflate(R.layout.list_row, null);
-            }
-
-            TextView txtMessage = (TextView) view.findViewById(R.id.message);
-            TextView txtTimestamp = (TextView) view.findViewById(R.id.timestamp);
-
-            MessageParse message = listMessages.get(position);
-            txtMessage.setText(message.getMessage());
-
-            CharSequence ago = DateUtils.getRelativeTimeSpanString(message.getTimestamp(), System.currentTimeMillis(),
-                    0L, DateUtils.FORMAT_ABBREV_ALL);
-
-            txtTimestamp.setText(String.valueOf(ago));
-
-            return view;
-        }
-    }
 }

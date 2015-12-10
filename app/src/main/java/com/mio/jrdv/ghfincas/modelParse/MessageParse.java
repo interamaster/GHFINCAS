@@ -8,9 +8,12 @@ public class MessageParse {
     /*
 
     This class is used to pass the message objects to list adapter.
+    //añadido el id!! para SQL
+
 
      */
 
+    private int id;
 
     private String message;
     private long timestamp;
@@ -18,9 +21,17 @@ public class MessageParse {
     public MessageParse() {
     }
 
-    public MessageParse(String message, long timestamp) {
+    public MessageParse(int id ,String message, long timestamp) {
+        this.id=id;
         this.message = message;
         this.timestamp = timestamp;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMessage() {
