@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.mio.jrdv.ghfincas.SQL.GHFINCASDataBaseHelper;
 import com.mio.jrdv.ghfincas.SQL.NotificationAdapter;
 import com.mio.jrdv.ghfincas.modelParse.MessageParse;
 
@@ -20,6 +21,7 @@ public class ParseActivityListView extends AppCompatActivity {
 
      private NotificationAdapter adapternew;
 
+    GHFINCASDataBaseHelper dbhandler;
 
 
 
@@ -33,6 +35,20 @@ public class ParseActivityListView extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //con esto cambiamos el tiotulod el ActionBar
         getSupportActionBar().setTitle("COMUNICADOS");
+
+
+        //SQL
+
+        //iniciamos
+        dbhandler=new GHFINCASDataBaseHelper(this);
+
+        //recuperamos los gudados en el array
+        listMessages=dbhandler.getAllNotifications();
+
+
+
+
+
 
         /*
         //no uso el fab button!!!
@@ -74,6 +90,16 @@ public class ParseActivityListView extends AppCompatActivity {
             Log.e(TAG, "Push received in ParseListActivity oncreate :" + message);
             MessageParse m = new MessageParse(0,message, System.currentTimeMillis());
             listMessages.add(0, m);
+
+            //en vez de al Arraylist al SQL
+
+            dbhandler.addNotification(m);
+
+            listMessages=dbhandler.getAllNotifications();
+
+            //y vuelvo a actualzair el arraylist
+
+
             //adapter.notifyDataSetChanged();
          // adapternew.notifyDataSetChanged();
             //en vez de esto que NO hace nada:
