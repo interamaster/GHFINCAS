@@ -51,7 +51,7 @@ public class ParseActivityListView extends AppCompatActivity {
 
 
         /*
-        //no uso el fab button!!!
+        //no uso el fab button EE!!!
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
