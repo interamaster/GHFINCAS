@@ -125,6 +125,7 @@ public class ParseActivityListView extends AppCompatActivity {
     /*
     Here onNewIntent() method will be called whenever a new push message is received.
      We’ll add the new message to list data source and refresh the list view.
+     ESTO NUNCA SE LLAMA!!!!AL MENOS EN 5.1.1
      */
     @Override
     protected void onNewIntent(Intent intent) {
@@ -133,8 +134,13 @@ public class ParseActivityListView extends AppCompatActivity {
         Log.e(TAG, "Push received in ParseListActivity onNewIntent!!! :" + message);
         MessageParse m = new MessageParse(0,message, System.currentTimeMillis());
         listMessages.add(0, m);
-        //adapter.notifyDataSetChanged();
-        adapternew.notifyDataSetChanged();
+
+        //en vez de al Arraylist al SQL
+
+        dbhandler.addNotification(m);
+
+        listMessages=dbhandler.getAllNotifications();
+
     }
 
 
