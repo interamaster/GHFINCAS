@@ -32,10 +32,14 @@ import java.util.ArrayList;
     public NotificationAdapter(Activity activity,Context mcontext,ArrayList<MessageParse> listData){
         this.context = mcontext;
         this.listDataAdapter = listData;
+
+        /*
         MessageParse mensajeprueba=new MessageParse(0,"inicial desde Adapter",787878989);
 
 
         listDataAdapter.add(0,mensajeprueba);
+        */
+
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 

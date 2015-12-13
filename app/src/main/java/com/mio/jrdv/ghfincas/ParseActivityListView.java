@@ -1,6 +1,8 @@
 package com.mio.jrdv.ghfincas;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -48,8 +50,63 @@ public class ParseActivityListView extends AppCompatActivity {
 
 
 
+        SharedPreferences pref = getSharedPreferences(LoginActivity.PREFS_NAME, Context.MODE_PRIVATE);
 
 
+
+
+        /*
+
+        estos son los vaslores guarados en el signup activity tras el ok
+
+        edit.putString(LoginActivity.PREF_NOMBREVECINO, name);
+        edit.putString(LoginActivity.PREF_EMAIL, email);
+        edit.putString(LoginActivity.PREF_NOMBRECMUNIDAD, comunidad);
+        edit.putString(LoginActivity.PREF_TELEFONO, telefono);
+        edit.putString(LoginActivity.PREF_PASSWORD, decryptedpassword);
+
+        edit.putBoolean(LoginActivity.PREF_BOOL_LOGINYAOK,true);
+
+        */
+
+        //solo si no hay ninguno!!!
+
+        if (listMessages.size()<1) {
+
+
+
+        String nombrevecino = pref.getString(LoginActivity.PREF_NOMBREVECINO, null);//esto devolvera el nombre si existe o null!!
+
+
+        //TODO quitar luego :prerellenamos el array:
+
+        MessageParse mensajenicial=new MessageParse(0,"Aqui ira recibiendo comunicados o bien de su comunidad o exclusivos para Usted "+nombrevecino, System.currentTimeMillis());
+
+
+        listMessages.add(0,mensajenicial);
+
+            //y en al SQL
+
+            dbhandler.addNotification(mensajenicial);
+
+
+        }
+
+
+        /*
+
+        MessageParse mensajeprueba2=new MessageParse(0,"inicial desde Adapter2",787878989);
+
+
+        listMessages.add(0,mensajeprueba2);
+
+
+
+        MessageParse mensajeprueba3=new MessageParse(0,"inicial desde Adapter 33",787878989);
+
+
+        listMessages.add(0,mensajeprueba3);
+*/
         /*
         //no uso el fab button EE!!!
 

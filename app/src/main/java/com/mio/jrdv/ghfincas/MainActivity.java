@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 
@@ -46,6 +47,13 @@ public class MainActivity extends Activity {
 
 
 
+    //para el map
+
+    private ImageView LogoPulsar;
+    private boolean mClicked = false;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +63,11 @@ public class MainActivity extends Activity {
 
         Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
         startActivity(intent);
+
+
+        //para el map
+
+        LogoPulsar=(ImageView)findViewById(R.id.logoMainPulsar);
 
 
 
@@ -381,11 +394,48 @@ public class MainActivity extends Activity {
 
         //ahoracambiamos Logo por mapa
 
+        //Avda Republica Argentina 24 long y lat=
+        //double lang=37.378291;
+       // double latitu= -6.001477;
+
+        /*
+        if (((Integer)LogoPulsar.getTag()).intValue() == R.drawable.logo7){
+
+           LogoPulsar.setImageResource(R.drawable.plano_ghfincas);
+            return;
+
+
+       }
+
+
+           LogoPulsar.setImageResource(R.drawable.logo7);
+*/
+
+
+        if(mClicked) {
+            //ic1.setBackground(ic1dark);
+            LogoPulsar.setImageResource(R.drawable.plano_ghfincas);
+        }
+        else {
+            //ic1.setBackground(ic1light);
+            LogoPulsar.setImageResource(R.drawable.logo7);
+        }
+
+        mClicked = !mClicked;
+
+
 
 
 
 
     }
+
+
+
+
+
+
+
 
         public void ProveedoresButtonPulsado (View view){
 

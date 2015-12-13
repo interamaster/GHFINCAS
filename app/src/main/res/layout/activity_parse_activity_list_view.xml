@@ -23,10 +23,16 @@
 
     <include layout="@layout/content_parse_activity_list_view" />
 
+
+
     <ListView
         android:id="@+id/list_view_parse"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/logo7redondo"
+        android:layout_marginTop="54dp"
+        android:listSelector="@android:color/transparent"
+        ></ListView>
 
 
 
