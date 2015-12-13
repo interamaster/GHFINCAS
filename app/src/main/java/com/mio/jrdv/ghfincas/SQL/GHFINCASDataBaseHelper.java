@@ -71,7 +71,8 @@ public class GHFINCASDataBaseHelper extends SQLiteOpenHelper {
         ArrayList<MessageParse> NotificationList = null;
         try{
             NotificationList = new ArrayList<MessageParse>();
-            String QUERY = "SELECT * FROM "+TABLE_NAME;
+            //String QUERY = "SELECT * FROM "+TABLE_NAME;
+            String QUERY = "SELECT * FROM "+TABLE_NAME +" ORDER BY "+KEY_ID+" DESC";
             Cursor cursor = db.rawQuery(QUERY, null);
             if(!cursor.isLast())
             {
