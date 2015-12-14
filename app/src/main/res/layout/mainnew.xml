@@ -22,11 +22,6 @@
             android:scaleType="fitCenter"
             android:onClick="PulsadoLogobutton"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EMPRESA PROVEEDOR COMUNICA COMUNIDA INCIDEN"
-            android:textColor="#013A6E"/>
 
     </LinearLayout>
 
@@ -36,60 +31,174 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.3"
         android:background="@color/white">
 
-        <ImageButton
-            android:id="@+id/EmpresaButton"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/flat_empresa"
-            android:scaleType="fitCenter"
-            android:background="@color/white"
-            android:onClick="PulsadoBotonEmpresa"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/ProveedoresButton"
-            android:layout_width="0dp"
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EMPRESA"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textColor="#013A6E"/>
+
+
+            <ImageButton
+                android:id="@+id/EmpresaButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/flat_empresa"
+                android:scaleType="fitCenter"
+                android:background="@color/white"
+
+                android:onClick="PulsadoBotonEmpresa"/>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/flat_proveedores1"
-            android:scaleType="fitCenter"
-            android:background="@color/white"
-            android:onClick="ProveedoresButtonPulsado"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
 
-        <ImageButton
-            android:id="@+id/comunicadoplusadobutton"
-            android:layout_width="0dp"
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="PROVEEDOR"
+                android:textColor="#013A6E"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+
+            <ImageButton
+                android:id="@+id/ProveedoresButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/flat_proveedores1"
+                android:scaleType="fitCenter"
+                android:background="@color/white"
+                android:onClick="ProveedoresButtonPulsado"/>
+
+        </LinearLayout>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/flat_comunicados"
-            android:scaleType="fitCenter"
-            android:onClick="comunicadoplusadobutton"
-            android:background="@color/white"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="COMUNICA2"
+                android:textColor="#013A6E"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <ImageButton
+                android:id="@+id/comunicadoplusadobutton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/flat_comunicados"
+                android:scaleType="fitCenter"
+                android:onClick="comunicadoplusadobutton"
+                android:background="@color/white"/>
 
 
-        <ImageButton
-            android:id="@+id/DialButton"
-            android:layout_width="0dp"
+        </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/flat_comunidad"
-            android:scaleType="fitCenter"
-            android:background="@color/white"
-            android:onClick="ComunidadBotonPulsado"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="COMUNIDAD"
+                android:textColor="#013A6E"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+            <ImageButton
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/flat_comunidad"
+                android:scaleType="fitCenter"
+                android:background="@color/white"
+                android:onClick="ComunidadBotonPulsado"/>
 
 
-        <ImageButton
-            android:id="@+id/IncidenciaButton"
-            android:layout_width="0dp"
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/flat_incidencias1"
-            android:scaleType="fitCenter"
-            android:onClick="IncidenciaButtonPulsado"
-            android:background="@color/white"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="INCIDENCIAS"
+                android:textColor="#013A6E"
+                android:textSize="12sp"
+                android:gravity="center"/>
+
+
+
+            <ImageButton
+                android:id="@+id/IncidenciaButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/flat_incidencias1"
+                android:scaleType="fitCenter"
+                android:onClick="IncidenciaButtonPulsado"
+                android:background="@color/white"/>
+
+
+        </LinearLayout>
+
+
+
+
 
 
     </LinearLayout>

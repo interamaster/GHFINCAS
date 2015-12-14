@@ -80,7 +80,11 @@ public class ParseActivityListView extends AppCompatActivity {
 
         //TODO quitar luego :prerellenamos el array:
 
-        MessageParse mensajenicial=new MessageParse(0,"Aqui ira recibiendo comunicados o bien de su comunidad o exclusivos para Usted "+nombrevecino, System.currentTimeMillis());
+
+
+
+
+        MessageParse mensajenicial=new MessageParse(0,"Aqui ira recibiendo comunicados o bien de su comunidad o exclusivos para Usted: "+nombrevecino, System.currentTimeMillis());
 
 
         listMessages.add(0,mensajenicial);
