@@ -58,7 +58,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mainnew);
+        //setContentView(R.layout.mainnew);
+
+        //la ponemos mejor en gris:
+
+        setContentView(R.layout.mainnewgrisabajo);
 
 
         Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
@@ -414,11 +418,24 @@ public class MainActivity extends Activity {
 
         if(mClicked) {
             //ic1.setBackground(ic1dark);
-            LogoPulsar.setImageResource(R.drawable.plano_ghfincas);
+
+            LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);
+
+
+            LogoPulsar.setImageResource(R.drawable.plano_ghfincas_2);
+            //LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);//lo ponemos antes
         }
         else {
             //ic1.setBackground(ic1light);
+
+            LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
             LogoPulsar.setImageResource(R.drawable.logo7);
+
+            //este lo poemos que ocupe toda lapantala
+
+           // LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);//lo pnemos antes
+
         }
 
         mClicked = !mClicked;
@@ -536,6 +553,32 @@ public class MainActivity extends Activity {
 
 
 
+
+    }
+
+    public void TelefonoPulsadoMain(View view) {
+
+        /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+        // mis -clicking prevention, using threshold of 1000 ms
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
+
+        // do your magic here . . . .
+
+
+        //que vibre al pulsar
+        view.performHapticFeedback(1, 2);
+
+        //String phno = "tel:123456789";la declaramos public!!!
+
+
+        Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse(phno));
+        startActivity(i);
 
     }
 }
