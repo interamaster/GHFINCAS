@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+//V09 casi tutto ok 16/12/15
+
+
 public class MainActivity extends Activity {
 
 
