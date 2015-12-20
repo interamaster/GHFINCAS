@@ -43,6 +43,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
         if (intent == null)
             return;
 
+
         try {
             JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
 
@@ -59,6 +60,21 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
 
 
         //TODO paso del JSON lo quiero normal!!!
+
+        //si o es un JSON hara esto:
+
+        try {
+            JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
+
+            Log.e(TAG, "Push received: " + json);
+
+            parseIntent = intent;
+
+            parsePushStringNormal(context, json);
+
+        } catch (JSONException e) {
+            Log.e(TAG, "Push message json exception: " + e.getMessage());
+        }
 
     }
 
@@ -98,6 +114,30 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
+    }
+
+
+
+    private void parsePushStringNormal(Context context, JSONObject json) {
+        try {
+
+           // JSONObject data = json.getJSONObject("alert");
+
+            String message = json.getString("alert");
+
+
+
+                // Intent resultIntent = new Intent(context, MainActivity.class);
+                Intent resultIntent = new Intent(context, ParseActivityListView.class);//probamos ocn elnuevo
+                // Intent resultIntent = new Intent(context, MainActivity.class);
+                resultIntent.putExtra("message",message);
+
+                showNotificationMessage(context, "GHFINCAS", message, resultIntent);
+        } catch (JSONException e) {
+            Log.e(TAG, "Push message json exception: " + e.getMessage());
+        }
+
+
     }
 
 
