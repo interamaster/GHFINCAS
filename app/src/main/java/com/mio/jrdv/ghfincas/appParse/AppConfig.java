@@ -13,4 +13,7 @@ public class AppConfig {
     public static final String PARSE_APPLICATION_ID = "mUj7ENzNhD4hm6o8ENhPqa5ZHAlM3QAjGnRgJu2V";
     public static final String PARSE_CLIENT_KEY = "AFxz2VqXFvSVsa6UFwGe3QRKBVC7EdwHMgjiBbfN";
     public static final int NOTIFICATION_ID = 100;
+
+    //para la Class Vecino
+    public static final String PARSE_CLASS = "Vecino";
 }

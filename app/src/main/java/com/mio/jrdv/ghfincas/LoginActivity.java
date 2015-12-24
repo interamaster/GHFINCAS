@@ -13,7 +13,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mio.jrdv.ghfincas.appParse.AppConfig;
 import com.mio.jrdv.ghfincas.helperParse.ParseUtils;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -126,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
 
 */
 
-        SharedPreferences pref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+       SharedPreferences pref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
 
 
@@ -166,6 +173,10 @@ public class LoginActivity extends AppCompatActivity {
         _passwordText.setText(password);
 
             }
+
+
+
+
 
     }
 
@@ -307,7 +318,7 @@ public class LoginActivity extends AppCompatActivity {
         //una vez hemos hecho el primer loging OK cmabiamos le bool para que la proxima vez lo guarde solo!!!!
 
 
-        SharedPreferences pref = getSharedPreferences( PREFS_NAME, Context.MODE_PRIVATE);
+        final SharedPreferences pref = getSharedPreferences( PREFS_NAME, Context.MODE_PRIVATE);
 
         // We need an editor object to make changes
         SharedPreferences.Editor edit = pref.edit();
@@ -325,14 +336,55 @@ public class LoginActivity extends AppCompatActivity {
 
          //recupermoas el email
 
-        String email = pref.getString(PREF_EMAIL, null);//esto devolvera el nombre si existe o null!!
+        final String email = pref.getString(PREF_EMAIL, null);//esto devolvera el nombre si existe o null!!
 
     //hacemos el logging e parse
 
 
         if (email != null) {
             ParseUtils.subscribeWithEmail(email);
+       // }
+
+        //Si es la primera vez creamos en Parse el Vecino en cuestion:
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(AppConfig.PARSE_CLASS);
+        query.whereEqualTo("email", email);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+
+                         if (scoreList.size()>=1){
+                           Log.d("Ok ya existia Vecino", email);
+
+                             }
+                            else {
+                             //ne existia aun..lo creo:
+                             ParseObject Vecino = new ParseObject(AppConfig.PARSE_CLASS);//PARSE_CLASS=Vecino!!!
+                             Vecino.put("email", email);
+                             Vecino.put("nombre", pref.getString(PREF_NOMBREVECINO,null));
+                             Vecino.put("comunidad", pref.getString(PREF_NOMBRECMUNIDAD,null));
+                             Vecino.put("telefono", pref.getString(PREF_TELEFONO,null));
+                             Vecino.saveInBackground();
+
+                             Log.e(TAG, "Creado vecino:"+email);
+
+
+
+                         }
+
+
+                } else {
+
+
+                    Log.d("Vecino", "Error: " + e.getMessage());
+
+                }
+            }
+        });
+
+
         }
+
 
         finish();
     }

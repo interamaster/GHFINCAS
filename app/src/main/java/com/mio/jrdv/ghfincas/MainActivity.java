@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 
     //TODO web de ghfincas Comunidad
 
-    final public   String urlcomunidad = "http://sevillafc.es/";
+    final public   String urlcomunidad = "http://www.ghfincas.es/oficina-virtual";
 
 
     //TODO email GHFINCAS
@@ -525,6 +525,8 @@ public class MainActivity extends Activity {
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(urlcomunidad));
         startActivity(i);
+
+
     }
 
     public void comunicadoplusadobutton(View view) {
