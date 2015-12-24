@@ -28,7 +28,7 @@ public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
 
-    private static final String [] EmailTO = {"interamaster@gmail.com"};
+    private static final String [] EmailTO = {"dgayurt@gmail.com"};
 
     private boolean SendEmailOK=false;//PARASABER SI SE MANDO OK  O NO EL AUTO EMAIL
 
@@ -369,7 +369,12 @@ public class SignupActivity extends AppCompatActivity {
 
 
         Mail m = new Mail("jrdvsoftyopozi@gmail.com", "sevilla4");
-        String[] toArr = {"jrdvsoftyopozi@gmail.com"};
+        //String[] toArr = {"jrdvsoftyopozi@gmail.com"};
+
+        //new Email::
+
+        String[] toArr = {"dgayurt@gmail.com"};
+
         m.setTo(toArr);
         m.setFrom("jrdvsoftyopozi@gmail.com");
         m.setSubject("Nueva Solicitud alta GHFINCAS  APK!!");
@@ -472,8 +477,7 @@ public class SignupActivity extends AppCompatActivity {
                         "%%ADFSDLIFSDLJKHDLKASHDLKHSLKJDHLSDHLKASDKJSKDJJDKJKLDLSKAJDLKAJSDKJLDJLKSJDLKAJSDLKSJADLKJASLDJASKDKJDLKJERIUFH" +
                         "KLJHFDKHGJKFHKJHGKJHJKFJKDFHGKJHDFKJGHKJDFHGKJFHJKHJFGKJHFDKJGHKJFDHGJKFHGKJDKHGDFKHGJKFDHGKSHFJGHDFSKGKJFDHGKFH" +
                         ""+imei+"DSADASKDJKASJDLKAJDLKJSALKDJLKJKDLJSALKDJASLKDJLKASDJLKSDJKLSJDLKASJDLKJSLKJDLKJDDSJLKADJSLDSJAKSDKLDSLJ" +
-                        "DNSDJLKAJJKVJKVSDIOUFISODUOIFSJKLKDLSFJLKSDJFLKDSJFKLJSDLKFJKLDSJFLKSJDFLKJSDLKFJKLDJFLKSDJFKLJSDFKLJSDKLFJSDKLF"+"\n \n \n " +
-                        " el password deberia ser ghfincas+2 utimos digitos del imei"+"\n \n osea: ghfincas"+last2CharacteresIemi);
+                        "DNSDJLKAJJKVJKVSDIOUFISODUOIFSJKLKDLSFJLKSDJFLKDSJFKLJSDLKFJKLDSJFLKSJDFLKJSDLKFJKLDJFLKSDJFKLJSDFKLJSDKLFJSDKLF");
 
                 try {
                     startActivity(Intent.createChooser(emailIntent, "Send mail..."));

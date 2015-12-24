@@ -27,7 +27,7 @@ public class InicidenciaSinFotoActivity extends AppCompatActivity {
     //PARA PODER HIDE LA PROGRESSBAR DESDE EL ASYNTASK
      private  ProgressDialog progressDialog;
 
-    private static final String [] EmailTO = {"jrdvsoftyopozi@gmail.com"};//A donde se enviara el correo si es MANUAL
+    private static final String [] EmailTO = {"dgayurt@gmail.com"};//A donde se enviara el correo si es MANUAL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +138,12 @@ public class InicidenciaSinFotoActivity extends AppCompatActivity {
         //en vez de asi..automatico
 
         Mail m = new Mail("jrdvsoftyopozi@gmail.com", "sevilla4");
-        String[] toArr = {"jrdvsoftyopozi@gmail.com"};
+
+        //String[] toArr = {"jrdvsoftyopozi@gmail.com"};
+        //new Email::
+
+        String[] toArr = {"dgayurt@gmail.com"};
+
         m.setTo(toArr);
         m.setFrom("jrdvsoftyopozi@gmail.com");
         m.setSubject("Nueva Inicidencia en Comunidad:"+nombreComunidad);
