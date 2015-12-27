@@ -44,6 +44,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
             return;
 
 
+        /*
         try {
             JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
 
@@ -57,7 +58,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
 
-
+*/
 
         //TODO paso del JSON lo quiero normal!!!
 

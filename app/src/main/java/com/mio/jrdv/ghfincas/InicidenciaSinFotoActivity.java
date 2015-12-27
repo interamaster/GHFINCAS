@@ -27,7 +27,7 @@ public class InicidenciaSinFotoActivity extends AppCompatActivity {
     //PARA PODER HIDE LA PROGRESSBAR DESDE EL ASYNTASK
      private  ProgressDialog progressDialog;
 
-    private static final String [] EmailTO = {"dgayurt@gmail.com"};//A donde se enviara el correo si es MANUAL
+    private static final String [] EmailTO = {"incidenciasghfincas@gmail.com"};//A donde se enviara el correo si es MANUAL
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

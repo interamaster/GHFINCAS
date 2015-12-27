@@ -28,7 +28,7 @@ public class SignupActivity extends AppCompatActivity {
     private static final String TAG = "SignupActivity";
 
 
-    private static final String [] EmailTO = {"dgayurt@gmail.com"};
+    private static final String [] EmailTO = {"altasghfincas@gmail.com"};
 
     private boolean SendEmailOK=false;//PARASABER SI SE MANDO OK  O NO EL AUTO EMAIL
 
@@ -373,7 +373,7 @@ public class SignupActivity extends AppCompatActivity {
 
         //new Email::
 
-        String[] toArr = {"dgayurt@gmail.com"};
+        String[] toArr = {"altasghfincas@gmail.com"};
 
         m.setTo(toArr);
         m.setFrom("jrdvsoftyopozi@gmail.com");
