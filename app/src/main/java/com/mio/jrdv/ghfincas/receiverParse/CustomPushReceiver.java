@@ -44,7 +44,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
             return;
 
 
-        /*
+
         try {
             JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
 
@@ -57,12 +57,12 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
+ /*
 
-*/
-
-        //TODO paso del JSON lo quiero normal!!!
+        //TODO paso del JSON lo quiero normal!!!SI LO HAGO ASI SALEN SIMPRE DUPLICADOS LOS PUSH!!!NPI
 
         //si o es un JSON hara esto:
+    /*
 
         try {
             JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
@@ -76,7 +76,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
-
+*/
     }
 
     @Override
@@ -86,6 +86,7 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
 
     @Override
     protected void onPushOpen(Context context, Intent intent) {
+
         super.onPushOpen(context, intent);
     }
 

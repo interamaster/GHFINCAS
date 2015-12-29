@@ -142,7 +142,7 @@ public class InicidenciaSinFotoActivity extends AppCompatActivity {
         //String[] toArr = {"jrdvsoftyopozi@gmail.com"};
         //new Email::
 
-        String[] toArr = {"dgayurt@gmail.com"};
+        String[] toArr = {"incidenciasghfincas@gmail.com"};
 
         m.setTo(toArr);
         m.setFrom("jrdvsoftyopozi@gmail.com");

@@ -410,6 +410,13 @@ public class SignupActivity extends AppCompatActivity {
             }
         } catch(Exception e) {
             Log.e("MailApp", "Could not send email", e);
+
+            //lo mandamos manual
+
+            SendEmailOK=false;
+
+
+            ManualEmailSiFallaAutomatico();
         }
 
 
