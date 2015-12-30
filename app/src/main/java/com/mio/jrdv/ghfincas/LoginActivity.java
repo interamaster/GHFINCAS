@@ -3,6 +3,8 @@ package com.mio.jrdv.ghfincas;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
@@ -17,6 +19,7 @@ import com.mio.jrdv.ghfincas.appParse.AppConfig;
 import com.mio.jrdv.ghfincas.helperParse.ParseUtils;
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -315,6 +318,25 @@ public class LoginActivity extends AppCompatActivity {
         _loginButton.setEnabled(true);
 
 
+        //como falla en kitkat..
+
+        if(Build.VERSION.SDK_INT == 19 ){
+            // Do some stuff
+              // new ParseUtils.BackgroundSave().execute(getApplicationContext());
+            // initializing parse library
+
+            new BackgroundSave().execute(getApplicationContext());
+
+
+
+
+        }
+
+
+
+
+
+
         //una vez hemos hecho el primer loging OK cmabiamos le bool para que la proxima vez lo guarde solo!!!!
 
 
@@ -388,6 +410,28 @@ public class LoginActivity extends AppCompatActivity {
 
         finish();
     }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////for kitkat4.4////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+    public class BackgroundSave extends AsyncTask {
+        public BackgroundSave(){
+        }
+        @Override
+        protected Object doInBackground(Object... arg0) {
+            try{
+                ParseInstallation.getCurrentInstallation().saveInBackground();
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+
+
 
     public void onLoginFailed() {
         Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();

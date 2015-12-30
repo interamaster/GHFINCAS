@@ -35,7 +35,11 @@ public class ParseUtils {
     public static void registerParse(Context context) {
         // initializing parse library
         Parse.initialize(context, AppConfig.PARSE_APPLICATION_ID, AppConfig.PARSE_CLIENT_KEY);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
+
+
+
+            ParseInstallation.getCurrentInstallation().saveInBackground();
+
 
         ParsePush.subscribeInBackground(AppConfig.PARSE_CHANNEL, new SaveCallback() {
             @Override
@@ -54,4 +58,5 @@ public class ParseUtils {
 
         Log.e(TAG, "Subscribed with email: " + email);
     }
+
 }
