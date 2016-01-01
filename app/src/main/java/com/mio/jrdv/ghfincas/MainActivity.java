@@ -16,15 +16,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.github.amlcurran.showcaseview.OnShowcaseEventListener;
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.Target;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 
 
 //V09 casi tutto ok 16/12/15
 //V0966 AÑADIDO chequeo de google play services
+//V0.98 AÑADIDA AYUDA INICIAL 2 VECES
 
-
-public class MainActivity extends Activity {
+public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
 
     //ivars de los buttons
@@ -199,7 +203,40 @@ public class MainActivity extends Activity {
 
 
 
-        //la ponemos mejor en gris:
+
+//*****************************************************************************************
+//***************************HELP INTRO!!!!!**************************************
+//*****************************************************************************************
+//*****************************************************************************************
+
+
+
+        int nuemArranuesParaayuda=pref.getInt(LoginActivity.PREF_NUMERO_DEARRANQUES, 1);
+
+        if (nuemArranuesParaayuda <=2 ) {
+
+            //solo lo hara las 3 primeras veces!!!
+
+
+            Target viewTarget = new ViewTarget(R.id.IncidenciaButton, this);
+            ShowcaseView sc = new ShowcaseView.Builder(this)
+                    .setTarget(viewTarget)
+                    .setContentTitle("INCIDENCIA")
+                    .setContentText("AL PULSAR ESTE BOTON NOS PODRA  INFORMAR SOBRE CUALQUIER INCIDENCIA O BIEN POR EMAIL O POR TELEFONO(24H)")
+                    //singleShot(42)
+                    .setShowcaseEventListener(this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout.view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc.setTag(2);
+
+        }
+
+
+            //la ponemos mejor en gris:
 
       //  setContentView(R.layout.mainnewgrisabajo);
 
@@ -719,6 +756,152 @@ public class MainActivity extends Activity {
 
         Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse(phno));
         startActivity(i);
+
+    }
+
+
+    //metodos de la ayuda!!!
+
+    @Override
+    public void onShowcaseViewHide(ShowcaseView showcaseView) {
+
+        //cuando se cieera se llama esto:
+    }
+
+    @Override
+    public void onShowcaseViewDidHide(ShowcaseView showcaseView) {
+
+
+        Log.e(TAG, "Showcasedidhide TAG:" +showcaseView.getTag() );
+
+
+        if (showcaseView.getTag()==2 ){
+
+            Target viewTarget2 = new ViewTarget(R.id.imageViewTelefonoMain, this);
+            ShowcaseView sc2= new ShowcaseView.Builder(this)
+                    .setTarget(viewTarget2)
+                    .setContentTitle("LLAMARNOS")
+                    .setContentText("AL PULSAR ESTE BOTON PODRA LLAMARNOS DESDE SU MOVIL DIRECTAMENTE")
+                    // .singleShot(43)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .setShowcaseEventListener( this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc2.setTag(3 );
+
+        }
+
+        else if  (showcaseView.getTag()==3 ){
+
+            //es el tercer help!!
+
+            Target viewTarget3 = new ViewTarget(R.id.ProveedoresButton, this);
+            ShowcaseView sc2= new ShowcaseView.Builder(this)
+
+                    .setTarget(viewTarget3)
+                    .setContentTitle("PROVEEDORES DE CONFIANZA")
+                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALIZIADA CON PROVEEDORES DE NUESTRA CONFIAZA POR SI PARTICUALRMENTE USTED NECESITA DE SUS SERVICIOS. \n " +
+                            "ADEMAS AL PULSAR SOBRE EL PROVEEDOR PODRA LLAMARLO DIRECTAMENTE DESDE SU MOVIL Y LE APLICARAN UN DESCUENTO SI DICE QUE LES LLAMA DESDE AL APLICACION DE GHFINCAS!!")
+                    //.singleShot(44)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .setShowcaseEventListener( this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc2.setTag(4 );
+
+        }
+
+
+        else if  (showcaseView.getTag()==4 ){
+
+            //es el tercer help!!
+
+            Target viewTarget3 = new ViewTarget(R.id.comunicadoplusadobutton, this);
+            ShowcaseView sc2= new ShowcaseView.Builder(this)
+
+                    .setTarget(viewTarget3)
+                    .setContentTitle("COMUNICADOS")
+                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALZIADA  CON LOS COMUNICADOS DE SU COMUNIDAD" +
+                            " O LOS QUE GHFINCAS LES HAYA MANDADO A USTED EN PARTICULAR CON INFORMACION SOBRE SUS INCIDENCIAS U OTROS ASUNTOS PERSONALES")
+                    //.singleShot(44)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .setShowcaseEventListener( this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc2.setTag(5 );
+
+        }
+
+
+        else if  (showcaseView.getTag()==5 ){
+
+            //es el tercer help!!
+
+            Target viewTarget3 = new ViewTarget(R.id.sucomunidad, this);
+            ShowcaseView sc2= new ShowcaseView.Builder(this)
+
+                    .setTarget(viewTarget3)
+                    .setContentTitle("SU COMUNIDAD")
+                    .setContentText("AL PULSAR ESTE BOTON LE DIRIGIREMOS A LOS DOCUMENTOS RELATIVOS A SU COMUNIDAD ALOJADOS EN NUESTRO SERVIDOR SEGURO.")
+                    //.singleShot(44)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .setShowcaseEventListener( this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc2.setTag(6 );
+
+        }
+
+        else if  (showcaseView.getTag()==6 ){
+
+            //es el tercer help!!
+
+            Target viewTarget3 = new ViewTarget(R.id.EmpresaButton, this);
+            ShowcaseView sc2= new ShowcaseView.Builder(this)
+
+                    .setTarget(viewTarget3)
+                    .setContentTitle("NUESTRA EMPRESA")
+                    .setContentText("AL PULSAR ESTE BOTON LE EXPLICAMOS NUESTRA FILOSOFIA DE EMPRESA Y LE ENLAZAMOS " +
+                            "SI QUIERE A VER NUESTRA PAGINA WEB POR SI NECEISTA SABER ALGO MAS DE NOSOTROS")
+                    //.singleShot(44)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .setShowcaseEventListener( this)
+                    .setStyle(R.style.CustomShowcaseTheme2)
+                    .replaceEndButton(R.layout. view_custom_button)
+                    .hideOnTouchOutside()
+                    .blockAllTouches()
+                    .build();
+
+            sc2.setTag(7 );
+
+        }
+
+    }
+
+
+    @Override
+    public void onShowcaseViewShow(ShowcaseView showcaseView) {
 
     }
 }

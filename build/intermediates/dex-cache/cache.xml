@@ -2,18 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\jars\classes.jar"
+        jar="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\classes-f1beeea986118722193424892db0612b6ec383bb.jar" />
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\classes-9e90e5994333c1d554bcb4a6d384b63c44e4fe05.jar" />
     </item>
     <item
-        jar="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\jars\classes.jar"
+        jar="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\classes-725a0d15618798f8d367319a2bd6a2a7cf3f5486.jar" />
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.0-842b8c2bdc05c0e62ad46fe44450091cd0f16714.jar" />
+    </item>
+    <item
+        jar="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\exploded-aar\com.github.amlcurran.showcaseview\library\5.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="531fe4dfc3733418fcaa4a7608e20bfc5e64b2e7">
+        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\classes-3e1d5c989fbc4fd8f782e27e363ff91285dfe24e.jar" />
+    </item>
+    <item
+        jar="C:\Users\esq00931\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="C:\ANDROID\GHFINCAS\V0965\GHFINCAS\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.0-bd0c87f8947773afaf6072799db8321c6f22c8a4.jar" />
     </item>
 
 </items>

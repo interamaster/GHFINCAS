@@ -56,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public static final String PREF_INFO_GOOGLEPLAYSERVICES ="false";
 
+    //para la ayuda inicial
+    public static final String PREF_NUMERO_DEARRANQUES= "1";
 
 
 
@@ -168,6 +170,28 @@ public class LoginActivity extends AppCompatActivity {
         Log.d(TAG, "email:" +email+" y  password:"+password);
 
          Log.d(TAG, String.valueOf(alreadyloggedinbefore));
+
+
+
+
+//para eñ nuemro de arranques y poner o no la ayda inicial
+
+        int nuemArranuesParaayuda=pref.getInt(PREF_NUMERO_DEARRANQUES,1);
+
+        Log.d(TAG, "numero de arranques:" +nuemArranuesParaayuda);
+        nuemArranuesParaayuda++;
+
+
+//guardamos el numeor de arranues
+
+// We need an editor object to make changes
+        SharedPreferences.Editor edit = pref.edit();
+        edit.putInt(LoginActivity.PREF_NUMERO_DEARRANQUES , nuemArranuesParaayuda);
+
+
+// Commit the changes
+        edit.commit();
+
 
 
         //si existen el username y password los ponemos n los campos de manera automatica
