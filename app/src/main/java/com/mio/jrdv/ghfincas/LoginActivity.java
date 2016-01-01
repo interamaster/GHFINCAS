@@ -52,6 +52,10 @@ public class LoginActivity extends AppCompatActivity {
     public static final String PREF_NOMBREVECINO = "nombreVecino";
     public static final String PREF_BOOL_LOGINYAOK ="false";
 
+    //para los googlePalyservices si dice NO
+
+    public static final String PREF_INFO_GOOGLEPLAYSERVICES ="false";
+
 
 
 

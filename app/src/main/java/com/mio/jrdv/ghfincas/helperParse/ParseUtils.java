@@ -1,11 +1,14 @@
 package com.mio.jrdv.ghfincas.helperParse;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.mio.jrdv.ghfincas.appParse.AppConfig;
 import com.parse.Parse;
 import com.parse.ParseException;
@@ -36,8 +39,8 @@ public class ParseUtils {
 
     public static void registerParse(Context context) {
         //para ver el log!!! de l parse:
-
-        Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE);
+        //YA SE  PORQUE ..LO QUITO EL LOGGING:
+       // Parse.setLogLevel(Parse.LOG_LEVEL_VERBOSE);
 
 
 
@@ -98,14 +101,9 @@ public class ParseUtils {
          */
 
 
-        //LUEGO HABRA QUE CHEQUEAR SI ESTAN OK LAS GOOGLE PLAY SERVICES!!!!!!
-        /*
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getApplicationContext());
-        if(status == ConnectionResult.SUCCESS) {
-            //Success! Do what you want
-        }
+       //cCOMOM ESTA MAL HACEMOS EL CHEQUEO ANTES DE NADA EN MAIN ACTIVITY ONCREATE!!!!
 
-        */
+
         // initializing parse library
         Parse.initialize(context, AppConfig.PARSE_APPLICATION_ID, AppConfig.PARSE_CLIENT_KEY);
 

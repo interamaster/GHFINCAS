@@ -1,17 +1,27 @@
 package com.mio.jrdv.ghfincas;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+
 
 //V09 casi tutto ok 16/12/15
+//V0966 AÑADIDO chequeo de google play services
 
 
 public class MainActivity extends Activity {
@@ -55,7 +65,9 @@ public class MainActivity extends Activity {
     private ImageView LogoPulsar;
     private boolean mClicked = false;
 
+//para el logging
 
+    private static String TAG = MainActivity.class.getSimpleName();
 
 
     @Override
@@ -63,18 +75,141 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.mainnew);
 
+
+
+
+        SharedPreferences pref = getSharedPreferences(LoginActivity.PREFS_NAME, Context.MODE_PRIVATE);
+         boolean alreadyElegidoNoActualizrGooglePlay =  pref.getBoolean(LoginActivity.PREF_INFO_GOOGLEPLAYSERVICES, false);
+
+
+
+        //lo primero chequeamos los google play services!!!
+
+        //LUEGO HABRA QUE CHEQUEAR SI ESTAN OK LAS GOOGLE PLAY SERVICES!!!!!!
+
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if(status == ConnectionResult.SUCCESS || alreadyElegidoNoActualizrGooglePlay) {
+            //Success! Do what you want
+            Log.e(TAG, "Google Services OK!!!!");
+
+            Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
+            startActivity(intent);
+
+            //la ponemos mejor en gris:
+
+            setContentView(R.layout.mainnewgrisabajo);
+
+            //  Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
+            //  startActivity(intent);
+
+
+            //para el map
+
+            LogoPulsar=(ImageView)findViewById(R.id.logoMainPulsar);
+
+
+
+
+        }
+
+        else {
+
+
+
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+
+            // Setting Dialog Title
+            alertDialog.setTitle("CONTINUAR SIN RECIBIR COMUNICADOS!!!");
+
+            // Setting Dialog Message
+            alertDialog.setMessage("Para poder recibir comunicados necesitamos los Google Play Services\n Si quieres continuar sin instalarlos pulsa SI \n (pero recuerda que no te" +
+                    " llegaran NUNCA los comunicados que enviemos a tu comunidad o a ti en particular)\n Si quieres actualizarlos pulsa en NO \n y te reenviaremos a Google Play para qe  los instales..." +
+                    "\n Una vez los tengas instalados vuelve a abrir GHFINCAS");
+
+            // Setting Icon to Dialog
+            alertDialog.setIcon(R.drawable.logo7redondo);
+
+            // Setting Positive "Yes" Button
+            alertDialog.setPositiveButton("SI", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int which) {
+
+                    // Write your code here to invoke YES event
+                    SharedPreferences pref = getSharedPreferences(LoginActivity.PREFS_NAME, Context.MODE_PRIVATE);
+
+
+                    // We need an editor object to make changes
+                    SharedPreferences.Editor edit = pref.edit();
+
+
+                    edit.putBoolean( LoginActivity.PREF_INFO_GOOGLEPLAYSERVICES,true);
+
+
+
+                    // Commit the changes
+                    edit.commit();
+
+
+                    //arrancams normal:
+
+                    Log.e(TAG, "Google Services OK!!!!");
+
+                    Intent intent = new Intent(MainActivity.this, com.mio.jrdv.ghfincas.LoginActivity.class);
+                    startActivity(intent);
+
+                    //la ponemos mejor en gris:
+
+                    setContentView(R.layout.mainnewgrisabajo);
+
+                    //  Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
+                    //  startActivity(intent);
+
+
+                    //para el map
+
+                    LogoPulsar=(ImageView)findViewById(R.id.logoMainPulsar);
+
+                }
+            });
+
+            // Setting Negative "NO" Button
+            alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // Write your code here to invoke NO event
+
+                    dialog.cancel();
+
+
+
+                    Log.e(TAG, "Google Services MAL!!!!");
+
+                    int requestCode = 1;
+                    int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(MainActivity.this);
+                    Dialog dialogGooglePlay = GooglePlayServicesUtil.getErrorDialog(status,MainActivity.this , requestCode);
+                    dialogGooglePlay.show();
+
+                   // finish();
+                }
+            });
+
+            // Showing Alert Message
+            alertDialog.show();
+
+
+        }
+
+
+
         //la ponemos mejor en gris:
 
-        setContentView(R.layout.mainnewgrisabajo);
+      //  setContentView(R.layout.mainnewgrisabajo);
 
-
-        Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
-        startActivity(intent);
+      //  Intent intent = new Intent(this, com.mio.jrdv.ghfincas.LoginActivity.class);
+      //  startActivity(intent);
 
 
         //para el map
 
-        LogoPulsar=(ImageView)findViewById(R.id.logoMainPulsar);
+     //   LogoPulsar=(ImageView)findViewById(R.id.logoMainPulsar);
 
 
 
