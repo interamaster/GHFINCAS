@@ -12,7 +12,9 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -63,8 +65,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
     //private ImageButton OTHERButton;
 
 
-
-    //para el map
+    //para el map  para el huevo de pascua:
 
     private ImageView LogoPulsar;
     private boolean mClicked = false;
@@ -213,7 +214,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
         int nuemArranuesParaayuda=pref.getInt(LoginActivity.PREF_NUMERO_DEARRANQUES, 1);
 
-        if (nuemArranuesParaayuda <=2 ) {
+        if (nuemArranuesParaayuda <=1 ) {
 
             //solo lo hara las 3 primeras veces!!!
 
@@ -235,6 +236,104 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
             sc.setTag(2);
 
         }
+
+
+
+
+        //*****************************************************************************************
+        //*****************************************************************************************
+        //ponemos un listener al LogoPulsar Para el huevo de Pascua!!!
+        //http://stackoverflow.com/questions/27757099/android-detect-doubletap-and-tripletap-on-view
+        // *****************************************************************************************
+        //*****************************************************************************************
+
+
+
+
+        LogoPulsar.setOnTouchListener(new View.OnTouchListener() {
+            Handler handler = new Handler();
+
+            int numberOfTaps = 0;
+            long lastTapTimeMs = 0;
+            long touchDownMs = 0;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        touchDownMs = System.currentTimeMillis();
+
+                        //que vibre
+                        v.performHapticFeedback(1, 2);
+
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        handler.removeCallbacksAndMessages(null);
+
+                        if ((System.currentTimeMillis() - touchDownMs) > ViewConfiguration.getTapTimeout()) {
+                            //it was not a tap
+
+                            numberOfTaps = 0;
+                            lastTapTimeMs = 0;
+                            break;
+                        }
+
+                        if (numberOfTaps > 0
+                                && (System.currentTimeMillis() - lastTapTimeMs) < ViewConfiguration.getDoubleTapTimeout()) {
+                            numberOfTaps += 1;
+                        } else {
+                            numberOfTaps = 1;
+                        }
+
+                        lastTapTimeMs = System.currentTimeMillis();
+
+                        if (numberOfTaps == 7) {
+                            Toast.makeText(getApplicationContext(), "PREMIO PARA EL CABALLERO!!", Toast.LENGTH_SHORT).show();
+                            //handle seven taps
+
+                            LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            LogoPulsar.setBackgroundColor(getResources().getColor(R.color.black));
+
+
+                            LogoPulsar.setImageResource(R.drawable.foto_huevo1);
+
+                        }
+
+
+                        else if (numberOfTaps == 2) {
+
+                            if(mClicked) {
+                                //ic1.setBackground(ic1dark);
+
+                                LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);
+
+
+                                LogoPulsar.setImageResource(R.drawable.plano_ghfincas_2);
+                                //LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);//lo ponemos antes
+                            }
+                            else {
+                                //ic1.setBackground(ic1light);
+
+                                LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);
+
+                                LogoPulsar.setImageResource(R.drawable.logo7);
+
+                                //este lo poemos que ocupe toda lapantala
+
+                                // LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);//lo pnemos antes
+
+                            }
+
+                            mClicked = !mClicked;
+
+
+                        }
+                }
+                return true;
+            }
+        });
+
 
 
             //la ponemos mejor en gris:
@@ -555,77 +654,11 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
     public void PulsadoLogobutton (View view){
 
-        /////////////para evitar dobles clicks rapidos //////////////
-///////////////////////////////////////////////////////////////////
-
-
-        // mis -clicking prevention, using threshold of 1000 ms
-        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000) {
-            return;
-        }
-        mLastClickTime = SystemClock.elapsedRealtime();
-
-        // do your magic here . . . .
-
-
-        //que vibre al pulsar
-
-        view.performHapticFeedback(1, 2);
-
-        //ahoracambiamos Logo por mapa
-
-        //Avda Republica Argentina 24 long y lat=
-        //double lang=37.378291;
-       // double latitu= -6.001477;
-
-        /*
-        if (((Integer)LogoPulsar.getTag()).intValue() == R.drawable.logo7){
-
-           LogoPulsar.setImageResource(R.drawable.plano_ghfincas);
-            return;
-
-
-       }
-
-
-           LogoPulsar.setImageResource(R.drawable.logo7);
-*/
-
-
-        if(mClicked) {
-            //ic1.setBackground(ic1dark);
-
-            LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);
-
-
-            LogoPulsar.setImageResource(R.drawable.plano_ghfincas_2);
-            //LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);//lo ponemos antes
-        }
-        else {
-            //ic1.setBackground(ic1light);
-
-            LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);
-
-            LogoPulsar.setImageResource(R.drawable.logo7);
-
-            //este lo poemos que ocupe toda lapantala
-
-           // LogoPulsar.setScaleType(ImageView.ScaleType.FIT_XY);//lo pnemos antes
-
-        }
-
-        mClicked = !mClicked;
-
-
-
+        //lo hago conlostener en oncreate para detcetar 7 toques
 
 
 
     }
-
-
-
-
 
 
 
