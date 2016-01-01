@@ -227,8 +227,9 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
                     .setShowcaseEventListener(this)
                     .setStyle(R.style.CustomShowcaseTheme2)
                     .replaceEndButton(R.layout.view_custom_button)
-                    .hideOnTouchOutside()
+
                     .blockAllTouches()
+
                     .build();
 
             sc.setTag(2);
@@ -805,7 +806,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
                     .setTarget(viewTarget3)
                     .setContentTitle("PROVEEDORES DE CONFIANZA")
-                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALIZIADA CON PROVEEDORES DE NUESTRA CONFIAZA POR SI PARTICUALRMENTE USTED NECESITA DE SUS SERVICIOS. \n " +
+                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALIZADA CON PROVEEDORES DE NUESTRA CONFIAZA POR SI PARTICUALRMENTE USTED NECESITA DE SUS SERVICIOS. \n " +
                             "ADEMAS AL PULSAR SOBRE EL PROVEEDOR PODRA LLAMARLO DIRECTAMENTE DESDE SU MOVIL Y LE APLICARAN UN DESCUENTO SI DICE QUE LES LLAMA DESDE AL APLICACION DE GHFINCAS!!")
                     //.singleShot(44)
                     .setStyle(R.style.CustomShowcaseTheme2)
