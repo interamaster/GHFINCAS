@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
@@ -17,6 +18,7 @@ import com.mio.jrdv.ghfincas.R;
 import com.mio.jrdv.ghfincas.appParse.AppConfig;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by joseramondelgado on 08/12/15.
@@ -67,6 +69,48 @@ public class NotificationUtils {
                             PendingIntent.FLAG_CANCEL_CURRENT
                     );
 
+
+
+            //en vez de asi como en:http://stackoverflow.com/questions/27805645/parse-onpushopen-never-called
+
+
+            //para el delete/dismiss:
+            String packageName = mContext.getPackageName();
+            Bundle extras = intent.getExtras();
+            Intent deleteIntent = new Intent("com.parse.push.intent.DELETE");
+            deleteIntent.putExtras(extras);
+            deleteIntent.setPackage(packageName);
+
+
+            Random random = new Random();
+            int contentIntentRequestCode = random.nextInt();
+            int deleteIntentRequestCode = random.nextInt();
+
+            Intent contentIntent = new Intent("com.parse.push.intent.OPEN");
+            contentIntent.putExtras(extras);
+            contentIntent.setPackage(packageName);
+
+            /*//NO USO ESTE O NO ABRE OK
+            PendingIntent pContentIntent = PendingIntent.getBroadcast(
+                    mContext,
+                    contentIntentRequestCode,
+                    contentIntent,
+                    PendingIntent.FLAG_CANCEL_CURRENT);
+
+                    */
+
+
+            PendingIntent pDeleteIntent = PendingIntent.getBroadcast(
+                    mContext,
+                    deleteIntentRequestCode,
+                    deleteIntent,
+                    PendingIntent.FLAG_CANCEL_CURRENT);
+
+
+
+
+
+
             NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
@@ -75,7 +119,8 @@ public class NotificationUtils {
                     .setAutoCancel(true)
                     .setContentTitle(title)
                     .setStyle(inboxStyle)
-                    .setContentIntent(resultPendingIntent)
+                    .setContentIntent( resultPendingIntent)
+                    .setDeleteIntent(pDeleteIntent)//sin esto no recibimos el npushdismiss!!
                     .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), icon))
                     .setContentText(message)

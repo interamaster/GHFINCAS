@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.mio.jrdv.ghfincas.ParseActivityListView;
+import com.mio.jrdv.ghfincas.SQL.GHFINCASDataBaseHelper;
 import com.mio.jrdv.ghfincas.helperParse.NotificationUtils;
+import com.mio.jrdv.ghfincas.modelParse.MessageParse;
 import com.parse.ParsePushBroadcastReceiver;
 
 import org.json.JSONException;
@@ -82,6 +84,56 @@ public class CustomPushReceiver  extends ParsePushBroadcastReceiver{
     @Override
     protected void onPushDismiss(Context context, Intent intent) {
         super.onPushDismiss(context, intent);
+
+
+        //si le damos a dismiss tambien deberia guardarnoslo:
+
+
+        if (intent == null)
+            return;
+
+
+
+        try {
+
+            JSONObject json = new JSONObject(intent.getExtras().getString("com.parse.Data"));
+
+            Log.e(TAG, "Push received: " + json);
+
+            boolean isBackground = json.getBoolean("is_background");
+            JSONObject data = json.getJSONObject("data");
+            String title = data.getString("title");
+            String message = data.getString("message");
+
+            if (!isBackground) {
+
+                //lo inseettamos en db SQL
+
+                Log.e(TAG, "Push dismissed with message :" + message);
+                MessageParse m = new MessageParse(0, message, System.currentTimeMillis());
+
+
+                //SQL
+
+                //iniciamos
+                GHFINCASDataBaseHelper dbhandler=new GHFINCASDataBaseHelper(context);
+
+                //en vez de al Arraylist al SQL
+
+                dbhandler.addNotification(m);
+
+                Log.e(TAG, "Push dismissed guardado en SQL " );
+
+            }
+
+
+
+
+        }
+                catch (JSONException e) {
+                 Log.e(TAG, "Push dismiised json exception: " + e.getMessage());
+    }
+
     }
 
     @Override
