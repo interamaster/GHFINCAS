@@ -289,7 +289,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
                         lastTapTimeMs = System.currentTimeMillis();
 
                         if (numberOfTaps == 7) {
-                            Toast.makeText(getApplicationContext(), "PREMIO PARA EL CABALLERO!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "PREMIO PARA EL CABALLERO!!", Toast.LENGTH_LONG).show();
                             //handle seven taps
 
                             LogoPulsar.setScaleType(ImageView.ScaleType.FIT_CENTER);
@@ -794,6 +794,50 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
     }
 
 
+    public void HelpPulsado(View view) {
+
+        //pulsada ayuda
+
+
+
+
+
+        /////////////para evitar dobles clicks rapidos //////////////
+///////////////////////////////////////////////////////////////////
+
+
+        // mis -clicking prevention, using threshold of 1000 ms
+        if (SystemClock.elapsedRealtime() - mLastClickTime < 1000){
+            return;
+        }
+        mLastClickTime = SystemClock.elapsedRealtime();
+
+        // do your magic here . . . .
+
+
+        //que vibre al pulsar
+        view.performHapticFeedback(1, 2);
+
+
+
+
+        Target viewTarget = new ViewTarget(R.id.IncidenciaButton, this);
+        ShowcaseView sc = new ShowcaseView.Builder(this)
+                .setTarget(viewTarget)
+                .setContentTitle("INCIDENCIA")
+                .setContentText("AL PULSAR ESTE BOTON NOS PODRA  INFORMAR SOBRE CUALQUIER INCIDENCIA O BIEN POR EMAIL O POR TELEFONO(24H)")
+                //singleShot(42)
+                .setShowcaseEventListener(this)
+                .setStyle(R.style.CustomShowcaseTheme2)
+                .replaceEndButton(R.layout.view_custom_button)
+
+                .blockAllTouches()
+
+                .build();
+
+        sc.setTag(2);
+    }
+
     //metodos de la ayuda!!!
 
     @Override
@@ -938,5 +982,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
     public void onShowcaseViewShow(ShowcaseView showcaseView) {
 
     }
+
+
 }
 
