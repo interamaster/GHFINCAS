@@ -884,8 +884,8 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
                     .setTarget(viewTarget3)
                     .setContentTitle("PROVEEDORES DE CONFIANZA")
-                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALIZADA CON PROVEEDORES DE NUESTRA CONFIAZA POR SI PARTICUALRMENTE USTED NECESITA DE SUS SERVICIOS. \n " +
-                            "ADEMAS AL PULSAR SOBRE EL PROVEEDOR PODRA LLAMARLO DIRECTAMENTE DESDE SU MOVIL Y LE APLICARAN UN DESCUENTO SI DICE QUE LES LLAMA DESDE AL APLICACION DE GHFINCAS!!")
+                    .setContentText("AL PULSAR ESTE BOTON LE APARECERA UNA LISTA  ACTUALIZADA CON PROVEEDORES DE NUESTRA CONFIANZA POR SI PARTICULARMENTE USTED NECESITA DE SUS SERVICIOS. \n " +
+                            "ADEMAS AL PULSAR SOBRE EL PROVEEDOR PODRA LLAMARLO DIRECTAMENTE DESDE SU MOVIL Y LE APLICARAN UN DESCUENTO SI DICE QUE LES LLAMA DESDE LA APLICACION DE GHFINCAS!!")
                     //.singleShot(44)
                     .setStyle(R.style.CustomShowcaseTheme2)
                     .replaceEndButton(R.layout. view_custom_button)
@@ -910,7 +910,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
 
                     .setTarget(viewTarget3)
                     .setContentTitle("COMUNICADOS")
-                    .setContentText("AL PULSAR ESTE BOTON LE APARACERA UNA LISTA  ACTUALZIADA  CON LOS COMUNICADOS DE SU COMUNIDAD" +
+                    .setContentText("AL PULSAR ESTE BOTON LE APARECERA UNA LISTA  ACTUALIZADA  CON LOS COMUNICADOS DE SU COMUNIDAD" +
                             " O LOS QUE GHFINCAS LES HAYA MANDADO A USTED EN PARTICULAR CON INFORMACION SOBRE SUS INCIDENCIAS U OTROS ASUNTOS PERSONALES")
                     //.singleShot(44)
                     .setStyle(R.style.CustomShowcaseTheme2)
@@ -961,7 +961,7 @@ public class MainActivity extends Activity  implements OnShowcaseEventListener {
                     .setTarget(viewTarget3)
                     .setContentTitle("NUESTRA EMPRESA")
                     .setContentText("AL PULSAR ESTE BOTON LE EXPLICAMOS NUESTRA FILOSOFIA DE EMPRESA Y LE ENLAZAMOS " +
-                            "SI QUIERE A VER NUESTRA PAGINA WEB POR SI NECEISTA SABER ALGO MAS DE NOSOTROS")
+                            "SI QUIERE A VER NUESTRA PAGINA WEB POR SI NECESITA SABER ALGO MAS DE NOSOTROS")
                     //.singleShot(44)
                     .setStyle(R.style.CustomShowcaseTheme2)
                     .replaceEndButton(R.layout. view_custom_button)
