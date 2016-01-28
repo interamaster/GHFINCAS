@@ -75,7 +75,24 @@ public class ProveedoresListViewAdapter extends BaseAdapter {
         // Capture position and set results to the TextViews
        // TELEFONOPROVEEDOR.setText(resultp.get(JsoupGetFromWebActivityMain.TELEFONO));//no lo pongo
         EMPRESAPROVEEDOR.setText(resultp.get(ListaProveedoresFromWeb.EMPRESA));
-        DESCRIPCIONPROVEEDOR.setText(resultp.get(ListaProveedoresFromWeb.DESCRIPCION));
+
+        //no quiero poner toda la descripocion la voy a limmitar aun os caracteres:
+        //http://stackoverflow.com/questions/1583940/up-to-first-n-characters
+        //String upToNCharacters = s.substring(0, Math.min(s.length(), n));
+
+
+        //DESCRIPCIONPROVEEDOR.setText(resultp.get(ListaProveedoresFromWeb.DESCRIPCION));
+
+        String DescripciponTotal=resultp.get(ListaProveedoresFromWeb.DESCRIPCION);
+
+        //recortandolo:
+
+
+
+        DESCRIPCIONPROVEEDOR.setText(DescripciponTotal.substring(0, Math.min(DescripciponTotal.length(), 40))+"...");
+
+
+
         // Capture position and set results to the ImageView
         // Passes flag images URL into ImageLoader.class
         imageLoader.DisplayImage(resultp.get(ListaProveedoresFromWeb.LOGO), LOGOPROVEEDOR);
