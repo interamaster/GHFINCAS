@@ -30,6 +30,8 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 //V0966 AÑADIDO chequeo de google play services
 //V0.98 AÑADIDA AYUDA INICIAL 2 VECES
 //v.0989 añadido huevo von 7 toques y boton de ayuda
+//v1.1 añadido en manifest  android:largeHeap="true" por problemas de simulador
+
 
 public class MainActivity extends Activity  implements OnShowcaseEventListener {
 

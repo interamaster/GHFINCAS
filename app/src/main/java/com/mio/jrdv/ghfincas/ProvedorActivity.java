@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ public class ProvedorActivity extends AppCompatActivity {
     String empresa;
     String descripcion;
     String logo;
+    String descripcionhtml;
 
     ImageLoader imageLoader = new ImageLoader(this);
 
@@ -50,6 +52,10 @@ public class ProvedorActivity extends AppCompatActivity {
         empresa = i.getStringExtra("Empresa");
         // Get the result of descripcion
         descripcion = i.getStringExtra("Descripcion");
+        //y en html:
+
+        descripcionhtml=i.getStringExtra("Descripcionhtml");
+
         // Get the result of logo
         logo = i.getStringExtra("Logo");
 
@@ -59,7 +65,7 @@ public class ProvedorActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Llamando", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
 
@@ -83,7 +89,17 @@ public class ProvedorActivity extends AppCompatActivity {
 
         // Locate the TextViews in singleitemview.xml
         TextView empresatxw = (TextView) findViewById(R.id.nombreempresa);
-        TextView descripcionempresatxw = (TextView) findViewById(R.id.descripcionempresa);
+
+        //TextView descripcionempresatxw = (TextView) findViewById(R.id.descripcionempresa);
+        //lo cambio por webview
+        String htmlAsString = descripcionhtml;//le quito la primera " para que londetcecte com html
+
+        WebView webView = (WebView) findViewById(R.id.textoEmpresa);
+        webView.loadDataWithBaseURL(null, htmlAsString, "text/html", "utf-8", null);
+
+        //para que no tenga HOR SCROLL:
+
+
 
 
         // Locate the ImageView in singleitemview.xml
@@ -91,7 +107,8 @@ public class ProvedorActivity extends AppCompatActivity {
 
         // Set results to the TextViews
         empresatxw.setText(empresa);
-        descripcionempresatxw.setText(descripcion);
+        //lo cambio por webview
+        //descripcionempresatxw.setText(descripcion);
 
 
         // Capture position and set results to the ImageView

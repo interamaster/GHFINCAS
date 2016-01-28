@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.mio.jrdv.ghfincas.IncidenciaActivity">
+    tools:context="com.mio.jrdv.ghfincas.IncidenciaActivity"
+    android:background="@color/white">
 
 
     <android.support.design.widget.AppBarLayout
@@ -28,23 +29,26 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_marginTop="58dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
 
             <!-- LOGO  image -->
             <ImageView
                 android:id="@+id/empresaLogo"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_weight="10"
                 android:layout_gravity="center"
                 android:src="@drawable/cameranexticon"
-                android:scaleType="fitXY"
-                android:onClick="PictureZoom"/>
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                />
 
             <!-- titulo Label -->
             <TextView android:id="@+id/nombreempresa"
@@ -55,21 +59,26 @@
                 android:text="NOMBRE EMPRESA"
                 android:gravity="center"
                 android:textSize="32dip"
-                android:layout_weight="2"/>
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+
 
             <!-- Descripcion Label -->
-            <TextView android:id="@+id/descripcionempresa"
+
+
+            <WebView android:id="@+id/textoEmpresa"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/background_floating_material_dark"
-                android:text="DESCRIPCIon ira aqui y seguira por el scro"
+                android:text="DESCRIPCIon ira aqui"
                 android:gravity="center"
-                android:textSize="16dip"/>
+                android:textSize="16dip"
+
+                android:background="@color/white"/>
 
             <!-- Descripcion Label -->
-
-
 
 
         </LinearLayout>

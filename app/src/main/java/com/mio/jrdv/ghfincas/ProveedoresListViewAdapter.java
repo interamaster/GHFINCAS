@@ -56,7 +56,11 @@ public class ProveedoresListViewAdapter extends BaseAdapter {
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View itemView = inflater.inflate(R.layout.list_row, parent, false);
+        //View itemView = inflater.inflate(R.layout.list_row, parent, false);
+
+        //nuevo estilo:
+
+        View itemView = inflater.inflate(R.layout.listrow_proveedores2, parent, false);
         // Get the position
         resultp = data.get(position);
 
@@ -127,6 +131,10 @@ public class ProveedoresListViewAdapter extends BaseAdapter {
                 intent.putExtra("Empresa", resultp.get(ListaProveedoresFromWeb.EMPRESA));
                 // Pass all data population
                 intent.putExtra("Descripcion",resultp.get(ListaProveedoresFromWeb.DESCRIPCION));
+
+                //y el descripcion en html:
+                intent.putExtra("Descripcionhtml",resultp.get(ListaProveedoresFromWeb.DESCRIPCION_HTML));
+
                 // Pass all data flag
                 intent.putExtra("Logo", resultp.get(ListaProveedoresFromWeb.LOGO));
                 //ahoara llamaos la activity psandole los datos y ene llas los recuperamos del intent!!

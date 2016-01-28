@@ -36,6 +36,10 @@ public class ListaProveedoresFromWeb extends Activity {
     static String TELEFONO = "Telefono";
     static String EMPRESA = "Empresa";
     static String DESCRIPCION = "Descripcion";
+
+    //y en html
+    static String DESCRIPCION_HTML = "Descripcionhtml";
+
     static String LOGO = "Logo";
     //TODO  URL Address
     String url = "https://jrdvsoft.wordpress.com/prueba-tabla/";
@@ -147,7 +151,8 @@ public class ListaProveedoresFromWeb extends Activity {
                         // Get the second td
                         map.put("Empresa", tds.get(1).text());
                         // Get the third td
-                        map.put("Descripcion", tds.get(2).text());
+                        map.put("Descripcion", tds.get(2).text());//lo paso comom hasta ahora en text
+                        map.put("Descripcionhtml", tds.get(2).html());//y lo paso en html tambien
                         // Get the image src links
                         map.put("Logo", imgSrcStr);
                         // Set all extracted Jsoup Elements into the array
